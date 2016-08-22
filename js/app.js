@@ -20,30 +20,6 @@ $(document).ready(function() {
 		}
 	});
 
-    var markup = '';
-
-    markup += '<form method=post action="https://p10.secure.webhosting.yahoo.com/forms?ssc=us1&login=rocksteady_tnt">';  
-    markup += '<label for="name">';
-    markup += 'Name<span class="required">*</span>';
-    markup += '<input type="text" name="name" required>';
-    markup += '</label>';
-    markup += '<label for="email">';
-    markup += 'Email<span class="required">*</span>';
-    markup += '<input type="email" name="email" required>';
-    markup += '</label>';
-    markup += '<label for="comments">';
-    markup += 'Comments<span class="required">*</span>';
-    markup += '<textarea cols="40" rows="10" name="comments" required></textarea>';
-    markup += '</label>';
-    markup += '<input id="submit" type="submit" value="Send">';
-    markup += '<!-- Option 1 -->';
-    markup += '<input type="hidden" name="subject" value="Web Form Submission">';
-    markup += '<!-- Option 2 -->';
-    markup += '<input type="hidden" name="next_url" value="http://kellyannmarshall.com/index.html">';
-    markup += '</form>';
-
-    $("#js_contact").append(markup);
-
     var contact = '';
     contact += '<li><a href="tel:+07906117249"><img src="icons/phone.png" alt="phone" />07906-117-249</a></li>';
     contact += '<li><a href="mailto:kelly@kellyannmarshall.com"><img src="icons/email.png" alt="email" />kelly@kellyannmarshall.com</a></li>';
@@ -87,7 +63,7 @@ $(document).ready(function() {
 
     function initHeader() {
         width = window.innerWidth;
-        height = window.innerHeight;
+        height = window.innerHeight / 2;
         target = {x: 0, y: height};
 
         largeHeader = document.getElementById('animation');
@@ -114,7 +90,7 @@ $(document).ready(function() {
 
     function resize() {
         width = window.innerWidth;
-        height = window.innerHeight;
+        height = window.innerHeight / 2;
         canvas.width = width;
         canvas.height = height;
     }
