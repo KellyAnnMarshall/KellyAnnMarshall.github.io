@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     var contact = '';
     contact += '<li><a href="tel:+07906117249"><img src="icons/phone.png" alt="phone" />07906-117-249</a></li>';
-    contact += '<li><a href="mailto:kelly@kellyannmarshall.com"><img src="icons/email.png" alt="email" />kelly@kellyannmarshall.com</a></li>';
+    contact += '<li><a href="mailto:rocksteady_tnt@yahoo.com"><img src="icons/email.png" alt="email" />rocksteady_tnt@yahoo.com</a></li>';
      
     $('.phone_email').append(contact);
 
