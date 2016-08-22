@@ -1,0 +1,60 @@
+form {
+	position: absolute;
+	width: 80%;
+	margin-top: 40px;
+	font-size: 120%;
+}
+
+input,
+label,
+textarea {
+	display: block;
+	margin: 10px 0px;
+	width: 100%;
+}
+
+label {
+	color: $theme_color;
+}
+
+input[type="submit"]{
+	  -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+	background: $theme_color;
+	text-transform: uppercase;
+	width: 150px;
+	&:hover {
+		background: lighten($theme_color, 10%);
+	}
+}
+
+#js_contact {
+	position: relative;
+}
+input, 
+textarea {
+	  -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+	webkit-appearance: none;
+	color: #fff;
+	
+	padding: 10px;
+	background: rgba(255,255,255, 0.2);
+	border: none;
+	&:focus {
+		outline: none;
+		background: rgba(255,255,255, 0.5);
+	}
+}
+
+textarea {
+	height: 200px;
+}
+
+@media screen and (min-width:650px) {
+	input,
+	label,
+	textarea {
+		width: 300px;
+	}
+}	

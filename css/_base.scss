@@ -1,0 +1,87 @@
+body {
+	-webkit-animation: myfirst 20s infinite; /* Chrome, Safari, Opera */
+  animation: myfirst 20s infinite;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.5em;
+	color: #fff;
+}
+
+h1 {
+	font-family: 'Droid Serif', serif;
+	font-weight: normal;
+	font-size: 2.5em;
+	color: #fff;
+}
+
+h1, h2, h3 {
+	margin: 1.5em 0px .5em 0px;
+	line-height: 1.2em;
+}
+
+h2 {
+	color: $theme_color;
+	font-weight: normal;
+}
+
+
+h3 {
+	color: $theme_color;
+	font-weight: normal;
+	display: block;
+	text-transform: uppercase;
+	border-bottom: 1px solid #6d6e67; /*warm gray*/
+}
+
+h3 span {
+	float: right;
+}
+
+h4 {
+	margin: 1em 0px 0px 0px;
+}
+
+h4 span {
+	font-weight: normal;
+
+}
+
+h5 {
+	margin: 1em 0px 0px 0px;
+	font-size: 1em;
+}
+
+h5 em{
+	margin: 1em 0px 0px 0px;
+	font-weight: normal;
+}
+
+input::-moz-focus-inner { 
+  border: 0; 
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	-webkit-transition: all .5s; 
+  transition: all .5s;
+	color: $theme_color;
+	text-decoration: none;
+}
+
+a:hover {
+	color: lighten($theme_color, 30%);
+}
+
+a:hover, a:focus, a:active {
+	outline: 0;
+}
+
+ul {
+	list-style-type: square;
+	margin: 0 0 0 1em;
+	padding: 0;
+}

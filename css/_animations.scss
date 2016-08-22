@@ -1,0 +1,14 @@
+@-webkit-keyframes myfirst {
+    0% {background: $background_color;}
+    20% {background: $tertiary_color;}
+    60% {background: darken($theme_color, 15%);}
+    100% {background: $background_color;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    0% {background: $background_color;}
+    20% {background: $tertiary_color;}
+    60% {background: darken($theme_color, 15%);}
+    100% {background: $background_color;}
+}

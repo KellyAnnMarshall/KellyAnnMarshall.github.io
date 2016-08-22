@@ -1,0 +1,167 @@
+.off_canvas_navigation {
+  -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+	display: block;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 0px;
+	min-height: 100%;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.5);
+	&.active {
+		width: 110px;
+	}
+}
+
+.switch {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  .offset & {
+  	right: 120px;
+  }
+}
+
+.switch:focus {
+  outline: none;
+}
+
+.switch span {
+  -webkit-transition: background 0 0.3s;
+          transition: background 0 0.3s;
+  display: block;
+  position: absolute;
+  top: 23px;
+  left: 5px;
+  right: 5px;
+  height: 3px;
+  background: lighten($background_color, 60%);
+}
+
+.switch span::before,
+.switch span::after {
+  -webkit-transition-duration: 0.3s, 0.3s;
+          transition-duration: 0.3s, 0.3s;
+  -webkit-transition-delay: 0.3s, 0;
+          transition-delay: 0.3s, 0;
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: lighten($background_color, 60%);
+  content: "";
+}
+
+.switch span::before {
+  top: -12px;
+  -webkit-transition-property: top, -webkit-transform;
+          transition-property: top, transform;
+}
+
+.switch span::after {
+  bottom: -12px;
+  -webkit-transition-property: bottom, -webkit-transform;
+          transition-property: bottom, transform;
+}
+
+.switch.active span {
+  background: none;
+}
+
+.switch.active span::before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.switch.active span::after {
+  bottom: 0;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.switch.active span::before,
+.switch.active span::after {
+  -webkit-transition-delay: 0, 0.3s;
+          transition-delay: 0, 0.3s;
+}
+
+
+nav {
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+  box-shadow: inset 10px 0px 5px -5px #000;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+}
+
+
+
+nav ul li a {
+  -webkit-transition: all .5s; 
+  transition: all .5s;
+	color: #ccc;	
+	display: block;
+	text-align: center;
+  font-size: 90%;
+  text-transform: uppercase;
+	padding: 25px 10px;
+}
+
+nav ul li a:hover {
+
+ 	background: rgba(255,255,255,0.2);
+	color: #fff;
+
+
+}
+
+.social {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+	.social {
+    display: block;
+		padding: 5px;
+		img {
+			margin-top: 5px;
+		  -webkit-transition: all .5s; 
+		  transition: all .5s;
+			height: 40px;
+			width: 40px;
+			opacity: 0.2;			
+		}
+
+		&:hover {
+			img {
+				opacity: 1.0;
+			}
+		}
+	}
+}
