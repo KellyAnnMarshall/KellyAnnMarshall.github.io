@@ -500,12 +500,18 @@ label {
 	color: $theme_color;
 }
 
-input[type="submit"]{
+button[type="submit"]{
+	@media screen and (min-width:650px) {
+		margin-bottom: 100px;
+	}
+	appearance: none;
+	border: none;
 	  -webkit-transition: all 0.2s;
         transition: all 0.2s;
 	background: $theme_color;
 	text-transform: uppercase;
 	width: 150px;
+	margin: 10px 0 50px;
 	&:hover {
 		background: lighten($theme_color, 10%);
 	}
