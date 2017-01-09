@@ -26,7 +26,7 @@ $(document).ready(function() {
      
     $('.phone_email').append(contact);
 
-    var contactFormMarkup = '<form method="POST" action="http://formspree.io/rocksteady_tnt@yahoo.com">';
+    var contactFormMarkup = '<form method="POST" action="https://formspree.io/rocksteady_tnt@yahoo.com">';
     contactFormMarkup += '<input type="hidden" name="_subject" value="Your enquiry to Kelly Ann Marshall" />';
     contactFormMarkup += '<label for="name">Name* <span class="required-flag">This field is required</span><input type="text" name="name" required></label>';
     contactFormMarkup += '<label for="_replyto">Email* <span class="required-flag">This field is required</span><input type="email" name="_replyto" required></label>';
