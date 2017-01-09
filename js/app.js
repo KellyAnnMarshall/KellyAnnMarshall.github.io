@@ -28,9 +28,10 @@ $(document).ready(function() {
 
     var contactFormMarkup = '<form method="POST" action="http://formspree.io/rocksteady_tnt@yahoo.com">';
     contactFormMarkup += '<input type="hidden" name="_subject" value="Your enquiry to Kelly Ann Marshall" />';
-    contactFormMarkup += '<label for="name">Name<input type="text" name="name" required></label>';
-    contactFormMarkup += '<label for="_replyto">Email<input type="email" name="_replyto" required></label>';
-    contactFormMarkup += '<label for="message">Message<textarea name="message" required></textarea></label>';
+    contactFormMarkup += '<label for="name">Name* <span class="required-flag">This field is required</span><input type="text" name="name" required></label>';
+    contactFormMarkup += '<label for="_replyto">Email* <span class="required-flag">This field is required</span><input type="email" name="_replyto" required></label>';
+    contactFormMarkup += '<label for="phone">Phone <input type="number" name="phone"></label>';
+    contactFormMarkup += '<label for="message">Message* <span class="required-flag">This field is required</span><textarea name="message" required></textarea></label>';
     contactFormMarkup += '<input type="hidden" name="_next" value="https://kellyannmarshall.github.io" />';
     contactFormMarkup += '<input type="text" name="_gotcha" style="display:none" />';
     contactFormMarkup += '<button type="submit">Send</button>';
