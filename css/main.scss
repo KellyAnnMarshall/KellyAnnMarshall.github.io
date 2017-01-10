@@ -581,6 +581,7 @@ header section h2 {
 }
 
 section {	
+	position: relative;
 	margin: 0px auto;
 	padding: 20px;
 }
@@ -763,6 +764,7 @@ footer h2 {
   border-radius: none;
   border: none;
   cursor: pointer;
+  z-index: 2;
   .offset & {
   	right: 120px;
   }
