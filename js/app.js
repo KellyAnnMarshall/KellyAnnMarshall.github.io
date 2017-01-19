@@ -19,12 +19,7 @@ $(document).ready(function() {
 			}
 		}
 	});
-
-    var contact = '';
-    contact += '<li><a href="tel:+07906117249"><img src="icons/phone.png" alt="phone" />07906-117-249</a></li>';
-    contact += '<li><a href="mailto:rocksteady_tnt@yahoo.com"><img src="icons/email.png" alt="email" />rocksteady_tnt@yahoo.com</a></li>';
-     
-    $('.phone_email').append(contact);
+    
 
     var contactFormMarkup = '<form method="POST" action="https://formspree.io/rocksteady_tnt@yahoo.com">';
     contactFormMarkup += '<input type="hidden" name="_subject" value="Your enquiry to Kelly Ann Marshall" />';

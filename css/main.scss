@@ -394,11 +394,10 @@ $tertiary_color: #222;
 $theme_color: #448f87;
 
 body {
-	-webkit-animation: myfirst 20s infinite; /* Chrome, Safari, Opera */
-  animation: myfirst 20s infinite;
+	background-color: darken($theme_color, 20%);
 	font-family: 'PT Sans', sans-serif;
 	font-size: 16px;
-	line-height: 1.5em;
+	line-height: 26px;
 	color: #fff;
 }
 
@@ -601,6 +600,25 @@ footer h2 {
 	color: #eee;
 }
 
+.organization {
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #6d6e67; /*warm gray*/
+
+	h4,
+	.location_duration {
+		display: inline;
+		&.location_duration--block {
+			display: block;
+		}
+	}
+
+	&.organization--last{
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+}
+
 
 .phone_email {
 	list-style-type: none;
@@ -622,16 +640,19 @@ footer h2 {
 		opacity: 0.2;
 		float: left;
 		padding: 5px 10px 5px 0;
-	}
-	&:hover {
-		a {
-			color: #fff;
+	} 
+	li {
+		&:hover {
+			a {
+				color: #fff;
 
-		}
-		img {
-			opacity: 1;	
+			}
+			img {
+				opacity: 1;	
+			}
 		}
 	}
+
 }
 
 
