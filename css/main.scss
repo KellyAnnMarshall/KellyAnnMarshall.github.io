@@ -514,10 +514,12 @@ button[type="submit"]{
         transition: all 0.2s;
 	background: $theme_color;
 	text-transform: uppercase;
+	color: $white;
+	padding: 12px 10px;
 	width: 150px;
 	margin: 10px 0 50px;
 	&:hover {
-		background: lighten($theme_color, 10%);
+		background: lighten($theme_color, 5%);
 	}
 }
 
@@ -618,11 +620,6 @@ footer h2 {
 		padding-bottom: 0;
 	}
 }
-
-.location_duration {
-	font-style: italic;
-}
-
 
 .phone_email {
 	list-style-type: none;
