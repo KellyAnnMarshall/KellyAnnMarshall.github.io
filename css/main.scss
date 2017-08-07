@@ -84,9 +84,8 @@ a:focus {
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 
-a:active,
-a:hover {
-    outline: 0;
+a:active {
+    outline: thin dotted;
 }
 
 /* ==========================================================================
@@ -459,19 +458,17 @@ p {
 	padding: 0;
 }
 
-a {
-	-webkit-transition: all .5s; 
-  transition: all .5s;
+a,
+.scroll-nav button {
+	-webkit-transition: color .5s; 
+  transition: color .5s;
 	color: $theme_color;
 	text-decoration: none;
 }
 
-a:hover {
+a:hover,
+.scroll-nav button:hover {
 	color: lighten($theme_color, 30%);
-}
-
-a:hover, a:focus, a:active {
-	outline: 0;
 }
 
 ul {
@@ -510,16 +507,19 @@ button[type="submit"]{
 	}
 	appearance: none;
 	border: none;
-	  -webkit-transition: all 0.2s;
-        transition: all 0.2s;
-	background: $theme_color;
+	  -webkit-transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+	background-color: $theme_color;
 	text-transform: uppercase;
 	color: $white;
 	padding: 12px 10px;
 	width: 150px;
 	margin: 10px 0 50px;
+
 	&:hover {
 		background: lighten($theme_color, 5%);
+		box-shadow: 0 2px 0 $white;
+		transform: translateY(-2px);
 	}
 }
 
@@ -528,17 +528,16 @@ button[type="submit"]{
 }
 input, 
 textarea {
-	  -webkit-transition: all 0.2s;
-        transition: all 0.2s;
+	  -webkit-transition: background 0.2s;
+        transition: background 0.2s;
 	webkit-appearance: none;
 	color: #fff;
 	
 	padding: 10px;
-	background: rgba(255,255,255, 0.2);
+	background: rgba(255,255,255, 0.1);
 	border: none;
 	&:focus {
-		outline: none;
-		background: rgba(255,255,255, 0.5);
+		background: rgba(255,255,255, 0.2);
 	}
 }
 
@@ -634,9 +633,9 @@ footer h2 {
 	font-weight: normal;
 	}
 	img {
-		-webkit-transition: all .5s; 
+		-webkit-transition: opacity .5s; 
 		display: none;
-	  transition: all .5s;
+	  transition: opacity .5s;
 		height: 30px;
 		opacity: 0.2;
 		float: left;
@@ -768,6 +767,8 @@ footer h2 {
 }
 
 .switch {
+	appearance: none;
+	background: none;
   display: block;
   position: fixed;
   top: 10px;
@@ -787,13 +788,9 @@ footer h2 {
   border: none;
   cursor: pointer;
   z-index: 2;
-  .offset & {
+  &.active {
   	right: 120px;
   }
-}
-
-.switch:focus {
-  outline: none;
 }
 
 .switch span {
@@ -859,6 +856,34 @@ footer h2 {
           transition-delay: 0, 0.3s;
 }
 
+.scroll-nav {
+	list-style-type: none;
+	margin: 0;
+	font-size: 1.5em;
+
+	li {
+		@media screen and (min-width: 800px) {
+			display: inline;
+
+			&::after {
+				content: '+';
+				opacity: 0.5;
+			}
+			&:last-of-type {
+				&::after {
+					content: '';
+				}
+			}
+		}
+	}
+}
+
+.scroll {
+	appearance: none;
+	border: none;
+	background-color: transparent;
+}
+
 
 nav {
 	position: fixed;
@@ -876,47 +901,71 @@ nav ul {
 
 
 
+nav ul li button,
 nav ul li a {
-  -webkit-transition: all .5s; 
-  transition: all .5s;
-	color: #ccc;	
+  -webkit-transition: background-color .5s, color .5s; 
+  transition: background-color .5s, color .5s; 
+	color: #ccc;
+	background-color: none;
 	display: block;
+	width: 100%;
 	text-align: center;
   font-size: 90%;
   text-transform: uppercase;
 	padding: 25px 10px;
 }
 
+nav ul li button:hover,
 nav ul li a:hover {
-
- 	background: rgba(255,255,255,0.2);
+ 	background-color: rgba(255,255,255,0.2);
 	color: #fff;
-
-
 }
 
-.social {
-  display: none;
+.icon-link {
+	text-indent: -9999px;
+  display: block;
+	padding: 25px 5px;
+	margin-top: 5px;
+	transition: opacity .5s;
+	opacity: 0.2;
+
+	&:hover {
+		opacity: 1;
+	}
 }
 
-@media screen and (min-width: 600px) {
-	.social {
-    display: block;
-		padding: 5px;
-		img {
-			margin-top: 5px;
-		  -webkit-transition: all .5s; 
-		  transition: all .5s;
-			height: 40px;
-			width: 40px;
-			opacity: 0.2;			
-		}
+.linkedin {
+	background-image: url('../icons/linkedin.png');
+	background-repeat: no-repeat;
+	background-position: 37px center;
+	background-size: 40px 40px;
+}
 
-		&:hover {
-			img {
-				opacity: 1.0;
-			}
-		}
+.flickr {
+	background-image: url('../icons/flickr.png');
+	background-repeat: no-repeat;
+	background-position: 37px center;
+	background-size: 40px 40px;
+}
+
+.github {
+	background-image: url('../icons/github.png');
+	background-repeat: no-repeat;
+	background-position: 37px center;
+	background-size: 40px 40px;
+}
+
+.cv {
+	background-image: url('../icons/Adobe_PDF_Icon.svg');
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-size: 60px 60px;
+	opacity: 0.5;
+	display: inline-block;
+	float: right;
+
+	&:hover {
+		opacity: 1;
 	}
 }
 

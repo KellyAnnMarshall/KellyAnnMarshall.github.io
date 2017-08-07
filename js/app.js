@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 	$(".scroll").click(function (e){
 		e.preventDefault();
-		var scroll_to = $(this).attr('id');
+		var scroll_to = $(this).attr('data-hook');
 	$('html, body').animate({
 		scrollTop: $('#'+scroll_to+'_target').offset().top - 20
 		}, 1000); 	
@@ -19,6 +19,10 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+    $('[data-hook="contact"]').click(function(){
+        $('input[name="name"]').focus();
+    });
     
 
     var contactFormMarkup = '<form method="POST" action="https://formspree.io/rocksteady_tnt@yahoo.com">';
