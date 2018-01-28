@@ -7,7 +7,7 @@
 
   {% include off-canvas-nav.html %}
 
-  <div class="page_container clearfix ">
+  <div class="page_container clearfix">
     {% include header.html %}
 
     <section>
@@ -92,7 +92,14 @@
 
       </article>
 
-
+      <article class="portfolio_container clearfix">
+          <div class="gallery">
+          <h2>Web Development Sandbox</h2>
+          <a href="/birdcount"><img class="sandbox" src="designwork/web/birdcount.png"></a>
+          <p class="title">I'm currently playing with making a bird counting app to count garden birds in real time. The app is built using AngularJS and ChartJS.</p>
+          </div>
+          
+      </article>
 
       <article>
         <h2 id="about_target">About</h2>
@@ -130,20 +137,17 @@
           <div class="column">
             <ul>
               <li itemprop="itemListElement">HTML(5)</li>
-              <li itemprop="itemListElement">CSS(3) / SASS</li>
-              <li itemprop="itemListElement">JavaScript / jQuery</li>
+              <li itemprop="itemListElement">CSS(3) / SASS / LESS</li>
+              <li itemprop="itemListElement">JavaScript / ES6 / jQuery</li>
               <li itemprop="itemListElement">Node / Grunt / Gulp</li>
-              <li itemprop="itemListElement">Backbone</li>
-              <li itemprop="itemListElement">Jasmine</li>
-              <li itemprop="itemListElement">PHP / MySQL</li>
-              <li itemprop="itemListElement">Git / SVN</li>
-
+              <li itemprop="itemListElement">AngularJS</li>
+              <li itemprop="itemListElement">Jasmine / Karma</li>
+              <li itemprop="itemListElement">Git</li>
             </ul>
           </div>
           <div class="column">
             <ul>
-              <li itemprop="itemListElement">Jekyll</li>
-              <li itemprop="itemListElement">Joomla / Wordpress</li>
+              <li itemprop="itemListElement">Jekyll / Joomla / Wordpress</li>
               <li itemprop="itemListElement">Adobe Creative Suite</li>
               <li itemprop="itemListElement">Responsive Web Design</li>
               <li itemprop="itemListElement">Progressive Enhancement</li>
@@ -155,6 +159,21 @@
         </div>
 
         <h3>Professional Experience</h3>
+        <div class="organization" itemscope itemtype="http://schema.org/Organization">
+          <h4 itemprop="name">Peninsula Business Services</h4>
+          <span class="location_duration">&mdash; Glasgow, Scotland (Aug 2017 - Present)</span>
+          <p class="job_title" itemprop="jobTitle">Front-End Developer</p>
+            <div itemprop="description">
+                <p>HTML, CSS/SASS and JavaScript development for an internal task management system that is built as a single page web application using AngularJS.</p>
+                <p>Programs and languages used: HTML5, CSS3, LESS, AngularJS, JavaScript / ES6, Node, Gulp, Git, Karma, Jasmine, VSCode, Jenkins, WebAPIs, Microsoft Team Foundation Server</p>
+                <h5 class="selected_accomplishments">Selected Accomplishments:</h5>
+                <ul>
+                  <li>Liaised with development team to research and implement Postcode Anywhere API service in a client address search and entry feature.</li>
+                  <li>Refactored project CSS/LESS directory structure and added automated css code linting to the project, making the project files easier to maintain.</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="organization" itemscope itemtype="http://schema.org/Organization">
           <h4 itemprop="name">Arnold Clark</h4>
           <span class="location_duration">&mdash; Glasgow, Scotland (Feb 2014 - May 2017)</span>
@@ -172,8 +191,6 @@
                 <li>Liaised with Worldpay technical support team and back-end developer to upgrade legacy online payment system on https://www.arnoldclarkrental.com to Worldpay’s Hosted Payment Pages. The new system was 
                   responsive on tablet and mobile devices by default and contributed to a 21% increase in mobile revenue vs the month prior to the switch.</li>
                   <li>Worked with team Web Designer and Product Owner to simplify and add a Guest Checkout feature to the checkout process on https://www.arnoldclarkrental.com. This combined with other website improvements contributed to a 31% increase in revenue overall for 2016 vs 2015. </li>
-                  <li>Converted legacy CSS files to SASS and added Grunt.js tasks compile and minify assets for 
-                    https://www.arnoldclarkrental.com, making the website project files more organised and easier to maintain. </li>
                     <li>Developed news feature at https://www.acvm.com/news/ which includes continuous loading articles, article search function and category filters.
                     </li>
                   </ul>
@@ -196,26 +213,12 @@
                   </ul>
                 </div>
               </div>
-              <div class="organization organization--last" itemscope itemtype="http://schema.org/Organization">
-
-                <h4 itemprop="name">The University of Glasgow</h4>
-                <span class="location_duration">&mdash; Glasgow, Scotland (Oct 2011 - Sep 2012)</span>
-
-                <div itemprop="description">
-                <p>Web Developer / Research Assistant<br>
-                  Website design and development, project coordination, user evaluation studies, presentations, academic technical writing and online demonstration video production.</p>
-                  <p>Programs and languages used: Django web application framework, PHP, MySQL, HTML, CSS, jQuery, AJAX, Photoshop, Illustrator, InDesign, SVN.</p>
-
-                  <h5 class="selected_accomplishments">Selected Accomplishments:</h5>
-                  <ul>
-                    <li>Developed customised PHP/mySQL web content editors for the University of Glasgow School of Computing Science and School of Maths &amp; Statistics</li>
-                    <li>Designed a child-friendly search engine interface for patients at the Emma Children&apos;s Hospital (Emma Kinderziekenhuis) in Amsterdam, NL</li>
-                  </ul>
-                </div>
-              </div>
-
               <h3>Previous Experience</h3>
-
+              <div class="organization" itemscope itemtype="http://schema.org/Organization">
+                <h4 itemprop="name">University of Glasgow</h4>
+                <span class="location_duration">&mdash; Glasgow, Scotland (Oct 2011 - Sep 2012)</span>
+                <p class="job_title" itemprop="jobTitle">Web Developer / Research Assistant</p>
+              </div>
               <div class="organization" itemscope itemtype="http://schema.org/Organization">
                 <h4 itemprop="name">Admit One</h4>
                 <span class="location_duration">&mdash; New York, NY (Feb 2008 - Sep 2010)</span>

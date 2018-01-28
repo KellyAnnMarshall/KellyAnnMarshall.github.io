@@ -850,6 +850,10 @@ footer h2 {
           transform: rotate(-45deg);
 }
 
+.sandbox {
+	width: 100%;
+}
+
 .switch.active span::before,
 .switch.active span::after {
   -webkit-transition-delay: 0, 0.3s;
