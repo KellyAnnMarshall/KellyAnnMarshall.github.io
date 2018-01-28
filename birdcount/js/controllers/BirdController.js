@@ -83,7 +83,8 @@ function BirdController(BirdService) {
                     ticks: {
                         fontColor: '#ccc',
                         fontSize: 20,
-                        beginAtZero: true
+                        beginAtZero: true,
+                        stepSize: 1
                     }
                 }]
             },
