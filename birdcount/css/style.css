@@ -1,0 +1,43 @@
+canvas {
+    position: fixed;
+}
+
+h1 {
+    text-align: left;
+    color: #fff;
+}
+
+form {
+    margin: 16px 0 0;
+}
+
+body {
+    background-color: #232930;
+}
+
+ul {
+    margin: 10px 0 0;
+    padding: 0;
+    color: white;
+    list-style-type: none;
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+li {
+    border-radius: 4px;
+    border: 1px solid #333;
+    padding-right: 10px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 5px #000;
+}
+
+img {
+    opacity: 0.8;
+}
+
+img:hover {
+    cursor: pointer;
+    opacity: 1;
+}
