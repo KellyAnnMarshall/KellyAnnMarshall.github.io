@@ -1,3 +1,7 @@
+body {
+    font-family: 'Droid Serif';
+}
+
 .navbar {
     position: fixed;
     width: 100%;
@@ -13,6 +17,7 @@ h1 {
 }
 
 h2 {
+    font-size: 1.7rem;
     margin: 0 0 5px;
 }
 

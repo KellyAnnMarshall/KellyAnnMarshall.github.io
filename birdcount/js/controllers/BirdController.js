@@ -82,6 +82,7 @@ function BirdController(BirdService) {
                     barThickness: 20,
                     ticks: {
                         fontColor: '#ccc',
+                        fontFamily: 'Droid Serif',
                         fontSize: 20
                     }
                 }],
@@ -91,6 +92,7 @@ function BirdController(BirdService) {
                     ticks: {
                         fontColor: '#ccc',
                         fontSize: 20,
+                        fontFamily: 'Droid Serif',
                         beginAtZero: true,
                         stepSize: 1
                     }
