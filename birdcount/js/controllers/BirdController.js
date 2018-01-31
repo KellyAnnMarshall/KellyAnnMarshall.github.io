@@ -24,7 +24,7 @@ function BirdController(BirdService) {
     $ctrl.$onInit = function() {
         $ctrl.birdData = getBirds();
     };
-
+    
     $ctrl.play = (id) => {
         var audio_id = 'audio_' + id;
         var audio = document.getElementById(audio_id);
@@ -38,14 +38,20 @@ function BirdController(BirdService) {
         $ctrl.searchText = '';
     };
 
-    $ctrl.addBird = (id) => {
+    $ctrl.addBird = (bird) => {
+        var id = bird.id;
+        bird.count += 1;
         chart.data.datasets.map(function(dataset) {
             dataset.data[id - 1] += 1;
         });
         chart.update();
     };
 
-    $ctrl.removeBird = (id) => {
+    $ctrl.removeBird = (bird) => {
+        var id = bird.id;
+        if(bird.count > 0) {
+            bird.count -= 1;
+        } 
         chart.data.datasets.map(function(dataset) {
             if (dataset.data[id - 1] > 0) {
                 dataset.data[id - 1] -= 1;
@@ -55,6 +61,8 @@ function BirdController(BirdService) {
     };
 
     var ctx = canvas.getContext('2d');
+    ctx.canvas.width = 300;
+    ctx.canvas.height = 500;
     var config = {
         type: 'horizontalBar',
         data: {

@@ -1,10 +1,19 @@
-canvas {
+.navbar {
     position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0px 0px 5px #000;
 }
 
 h1 {
+    font-size: 2rem;
     text-align: left;
     color: #fff;
+}
+
+h2 {
+    margin: 0 0 5px;
 }
 
 form {
@@ -15,29 +24,66 @@ body {
     background-color: #232930;
 }
 
-ul {
-    margin: 10px 0 0;
-    padding: 0;
+.count {
+    text-align: center;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-radius: .3rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.list {
     color: white;
     list-style-type: none;
-    height: 500px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    margin: 150px 0 20px 0;
+    padding: 0;
+}
+
+.btn-group {
+    margin-bottom: 10px;
+    width: 100%
+}
+
+.btn-group button {
+    width: 50%;
 }
 
 li {
-    border-radius: 4px;
+    position: relative;
+    border-radius: .3rem;
     border: 1px solid #333;
-    padding-right: 10px;
-    margin-bottom: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
     box-shadow: 0px 0px 5px #000;
 }
 
 img {
     opacity: 0.8;
+    width: 100px;
+    height: 100px;
 }
 
 img:hover {
     cursor: pointer;
     opacity: 1;
+}
+
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .navbar + .container-fluid { 
+        margin-top: 100px;
+    }
+    .list {
+        font-size: 2rem;
+        height: 500px;
+        margin-top: 0;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
 }
