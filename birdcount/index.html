@@ -35,12 +35,12 @@
                 <ul class="list">
                     <li ng-repeat="bird in $ctrl.birdData | filter:{name: $ctrl.searchText}">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-6">
                                 <h2>{{ bird.name }}</h2>
                                 <img class="img-fluid" ng-src="images/{{ bird.shortname }}.png" ng-click="$ctrl.play(bird.id);">
                                 <audio id="audio_{{bird.id}}" ng-src="{{bird.birdAudioPath | trustUrl}}"></audio>
                             </div>
-                            <div class="col-4 align-self-end">
+                            <div class="col-6 align-self-end">
                                 <h2 class="count">{{ bird.count}}</h2>
                                 <div class="btn-group">
                                     <div class="btn-group">
