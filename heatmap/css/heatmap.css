@@ -26,6 +26,8 @@ h2 {
 
 .bird-dropdown {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background: #ddd url('../images/chevron-down.svg') no-repeat center right 10px;
     border-radius: 0px;
     border: none;
