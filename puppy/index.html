@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    html,
+    body,
+    #app {
+      margin: 0;
+      padding: 0;
+      background: #001f3f;
+      height: 100%;
+      color: white;
+    }
+
+    button {
+      position: absolute;
+      bottom: 10px;
+      height: 40px;
+      padding: 8px 10px;
+      border: none;
+      width: 200px;
+      margin: 10px 0;
+      font-size: 18px;
+      color: #111111;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: Avenir, Arial, Helvetica, sans-serif;
+      font-size: 60px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+        max-width: 600px;
+        max-height: 400px;
+    }
+
+    .label {
+      font-size: 14px;
+    }
+  </style>
+  <div id="app"></div>
+
+
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <script>
+    class Wrapper extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { image: null };
+
+        this.getImage = this.getImage.bind(this)
+      }
+
+      getImage() {
+        return fetch('https://dog.ceo/api/breed/collie-border/images/random')
+          .then(rsp => rsp.json())
+          .then(data => (
+            this.setState({
+              image: data.message
+            })
+          ))
+      }
+
+      componentDidMount() {
+        this.getImage()
+      }
+
+      render() {
+        return React.createElement(
+          'div',
+          { className: 'wrapper' },
+          React.createElement(Img, { source: this.state.image }),
+          React.createElement(Button, { getImage: this.getImage })
+          
+        );
+      }
+    }
+
+    function Img(props) {
+      return React.createElement(
+        'img',
+        {
+          src: props.source,
+        },
+      );
+    }
+
+    function Button(props) {
+      return React.createElement(
+        'button',
+        { onClick: props.getImage },
+        "Get a new puppy"
+      );
+    }
+
+    var container = document.querySelector('#app');
+    ReactDOM.render(
+      React.createElement(Wrapper),
+      container
+    );
+  </script>
+</body>
+
+</html>
