@@ -103,10 +103,7 @@ var stores = {
     ]
 };
 
-
-mapboxgl.accessToken = 'pk.eyJ1Ijoia21hcnNoYWxsIiwiYSI6ImNqanIzMzVicjBsc2Uzd3A0cTVueWhhZTkifQ.khEKqcO-hx2Fta7Ny8Fsyw';
-// This adds the map to your page
-var map = new mapboxgl.Map({
+var mapOptions = {
     // container id specified in the HTML
     container: 'map',
     // style URL
@@ -115,7 +112,11 @@ var map = new mapboxgl.Map({
     center: [-80.713703, 34.394260],
     // initial zoom
     zoom: 6
-});
+};
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoia21hcnNoYWxsIiwiYSI6ImNqanIzMzVicjBsc2Uzd3A0cTVueWhhZTkifQ.khEKqcO-hx2Fta7Ny8Fsyw';
+// This adds the map to your page
+var map = new mapboxgl.Map(mapOptions);
 
 map.on('load', function (e) {
     // Add the data to your map as a layer
@@ -133,10 +134,22 @@ function flyToStore(currentFeature) {
     });
 }
 
-function createPopUp(currentFeature) {
+function resetMap() {
+    removePopups();
+    map.flyTo({
+        center: [-80.713703, 34.394260],
+        zoom: 6
+    })
+}
+
+function removePopups() {
     var popUps = document.getElementsByClassName('mapboxgl-popup');
     // remove any exisiting popups
     if (popUps[0]) popUps[0].remove();
+}
+
+function createPopUp(currentFeature) {
+    removePopups();
 
     var popup = new mapboxgl.Popup({ closeOnClick: false })
         .setLngLat(currentFeature.geometry.coordinates)
@@ -164,11 +177,10 @@ function buildLocationList(data) {
 
         // Create a new link with the class 'title' for each store
         // and fill it with the store address
-        var link = listing.appendChild(document.createElement('a'));
-        link.href = '#';
-        link.className = 'title';
-        link.dataPosition = i;
-        link.innerHTML = prop.address;
+        var title = listing.appendChild(document.createElement('span'));
+        title.className = 'title';
+        listing.dataPosition = i;
+        title.innerHTML = prop.address;
 
         // Create a new div with the class 'details' for each store
         // and fill it with the city and phone number
@@ -179,7 +191,7 @@ function buildLocationList(data) {
         }
 
         // Add an event listener for the links in the sidebar listing
-        link.addEventListener('click', function (e) {
+        listing.addEventListener('click', function (e) {
             // Update the currentFeature to the store associated with the clicked link
             var clickedListing = data.features[this.dataPosition];
             // 1. Fly to the point associated with the clicked link
