@@ -16,7 +16,7 @@ body {
 
 .list {
     width: 100vw;
-    margin: 0;
+    margin: 50px 0 0;
     padding: 0;
     list-style-type: none;
     display: flex;
@@ -198,26 +198,21 @@ span {
     margin: 0;
 }
 
-@media only screen and (min-width: 600px) {
-    .item  {
-        flex-basis: 33.33333vw;
-        height: 33.33333vh;
-    }
-
-    .list {
-        height: 100vh;
-    }
-}
-
 nav {
-    background-color: rgba(0,0,0,0.5);
+    background-color: #999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    height: 50px;
     padding: 5px;
+    position: fixed;
     text-align: right;
+    top: 0;
+    width: 100%;
+    z-index: 2;
 }
 
 label {
     color: #fff;
-    padding: 10px;
+    padding: 10px 0px;
     display: inline-block;
 }
 
@@ -252,4 +247,20 @@ select {
     border-radius: 0;
     margin: 0;
 
+}
+
+@media only screen and (min-width: 600px) {
+    nav {
+        position: relative;
+    }
+
+    .item  {
+        flex-basis: 33.33333vw;
+        height: 33.33333vh;
+    }
+
+    .list {
+        height: 100vh;
+        margin: 0;
+    }
 }
