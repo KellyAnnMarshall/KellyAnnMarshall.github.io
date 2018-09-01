@@ -1,6 +1,6 @@
 body {
     color: #404040;
-    font: 400 15px/22px Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font: 400 14px/20px Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -13,11 +13,7 @@ body {
   }
   
   h1 {
-    font-size: 22px;
     margin: 0;
-    font-weight: 400;
-    line-height: 20px;
-    padding: 20px 2px;
   }
 
   h1:hover {
@@ -35,6 +31,8 @@ body {
   
   .sidebar {
     position: relative;
+    min-width: 300px;
+    max-width: 600px;
     z-index: 2;
   }
   
@@ -48,12 +46,12 @@ body {
 
   .heading {
     background: #1d5078;
-    color: #fff;
     border-bottom: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: #fff;
     height: 60px;
     line-height: 60px;
     padding: 0 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   }
 
   address {
@@ -65,72 +63,75 @@ body {
       display: block;
   }
   
-  .listings {
+  .store-listings {
     background-color: #fff;
     overflow: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   }
   
-  .listings .item {
+  .item {
     display: block;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #1d5078;
     padding: 10px;
     text-decoration: none;
-    background-color: #fff;
-    transition: background-color .5s;
+    background-color: #ccc;
+    transition: all .250s;
   }
   
-  .listings .item:last-child { border-bottom: none; }
+  .item:last-child { border-bottom: none; }
   
-  .listings .item .title {
+  .title {
     display: block;
+    font-weight: 400;
     color: #0c3b60;
-    font-weight: 700;
-    
-  }
-  
-  .listings .item .title small { font-weight: 400; }
-  
-  .listings .item.active .title,
-  .listings .item .title:hover { color: #2f5e81; }
-  
-  .listings .item.active, .listings .item:hover {
-    background-color: #e6e6e6;
-  }
-  
-  ::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
-    border-left: 0;
-    background: rgba(0, 0, 0, 0.1);
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: none;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #0c3b60;
-    border-radius: 0;
-  }
-  
-  .clearfix { display: block; }
-  
-  .clearfix::after {
-    content: '.';
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+    margin: 0;
   }
 
+  .list-address {
+    position: absolute;
+    padding: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  .item.active .list-address {
+    position: relative;
+    clip: none;
+  }
+
+  .greenville.active {
+    background: url('images/greenville.png') no-repeat center top;
+    background-size: 100% 140px;
+    padding-top: 150px;
+  }
+
+  .charleston.active {
+    background: url('images/charleston.png') no-repeat center top;
+    background-size: 100% 140px;
+    padding-top: 150px;
+  }
+
+  .concord.active {
+    background: url('images/concord.png') no-repeat center top;
+    background-size: 100% 140px;
+    padding-top: 150px;
+  }
+  
+  .item .title small { font-weight: 400; }
+  
+  .item.highlight .title,
+  .item .title:hover { color: #2f5e81; }
+  
+  .item.highlight, .item:hover {
+    background-color: #fff;
+  }
+  
   /* Marker tweaks */
 .mapboxgl-popup-close-button {
     display: none;
   }
   
   .mapboxgl-popup-content {
-    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+    font: 400 14px/20px Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding: 0;
     width: 180px;
   }
@@ -149,6 +150,21 @@ body {
     font-weight: 700;
     margin-top: -15px;
   }
+
+  /* .mapboxgl-popup-content h3.concord {
+    background: #f6ce4b url('images/concord.png') no-repeat top center;
+    background-size: 100%;
+  }
+
+  .mapboxgl-popup-content h3.greenville {
+    background: #f6ce4b url('images/greenville.png') no-repeat top center;
+    background-size: contain;
+  }
+
+  .mapboxgl-popup-content h3.charleston {
+    background: #f6ce4b url('images/charleston.png') no-repeat top center;
+    background-size: contain;
+  } */
   
   .mapboxgl-popup-content h4 {
     margin: 0;
@@ -187,16 +203,15 @@ body {
     background-color: rgba(0, 0, 0, 0);
   }
 
-  @media all and (min-width: 900px) {
-      .sidebar {
-          position: absolute;
-          width: 25%;
-          left: 0;
-      }
+  @media all and (min-width: 600px) {
+    .sidebar {
+        position: absolute;
+        left: 0;
+    }
 
-      .map {
-          top: 0;
-          height: 100%;
-      }
+    .map {
+        top: 0;
+        height: 100%;
+    }
 
 }

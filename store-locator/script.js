@@ -20,6 +20,7 @@ var stores = {
                 ]
             },
             "properties": {
+                "name": "greenville",
                 "phoneFormatted": "(864) 233-7484",
                 "phone": "8642337484",
                 "address": "280 Rainforest Way",
@@ -50,6 +51,7 @@ var stores = {
                 ]
             },
             "properties": {
+                "name": "concord",
                 "phoneFormatted": "(704) 795-3774",
                 "phone": "7047953774",
                 "address": "2900 Armentrout Drive",
@@ -80,6 +82,7 @@ var stores = {
                 ]
             },
             "properties": {
+                "name": "charleston",
                 "phoneFormatted": "(843) 207-8181",
                 "phone": "8432078181",
                 "address": "6470 Dorchester Road",
@@ -135,11 +138,27 @@ function flyToStore(currentFeature) {
 }
 
 function resetMap() {
+    resetHighlightItems();
+    resetActiveItems();
     removePopups();
     map.flyTo({
         center: [-80.713703, 34.394260],
         zoom: 6
     })
+}
+
+function resetHighlightItems() {
+    var highlightItem = document.getElementsByClassName('highlight');
+    if (highlightItem[0]) {
+        highlightItem[0].classList.remove('highlight');
+    }
+}
+
+function resetActiveItems() {
+    var activeItem = document.getElementsByClassName('active');
+    if (activeItem[0]) {
+        activeItem[0].classList.remove('active');
+    }
 }
 
 function removePopups() {
@@ -157,6 +176,7 @@ function createPopUp(currentFeature) {
             <h3>Atlantic Coast Electric Supply</h3>
             <address>
                 <span>${currentFeature.properties.address}</span>
+                <span>${currentFeature.properties.city}, ${currentFeature.properties.state}</span>
             </address>`)
         .addTo(map);
 }
@@ -173,21 +193,26 @@ function buildLocationList(data) {
         var listings = document.getElementById('listings');
         var listing = listings.appendChild(document.createElement('div'));
         listing.className = 'item';
+        listing.classList.add(prop.name);
         listing.id = 'listing-' + i;
 
         // Create a new link with the class 'title' for each store
         // and fill it with the store address
-        var title = listing.appendChild(document.createElement('span'));
+        var title = listing.appendChild(document.createElement('h2'));
         title.className = 'title';
         listing.dataPosition = i;
-        title.innerHTML = prop.address;
+        title.innerHTML = prop.city;
 
         // Create a new div with the class 'details' for each store
         // and fill it with the city and phone number
-        var details = listing.appendChild(document.createElement('div'));
-        details.innerHTML = prop.city;
+        var address = listing.appendChild(document.createElement('address'));
+        address.classList.add('list-address');
+        address.innerHTML = prop.address;
+        address.appendChild(document.createElement('br'));
+        address.innerHTML += prop.city + ', ' + prop.state;
+        address.appendChild(document.createElement('br'));
         if (prop.phone) {
-            details.innerHTML += ' &middot; ' + prop.phoneFormatted;
+            address.innerHTML += prop.phoneFormatted;
         }
 
         // Add an event listener for the links in the sidebar listing
@@ -199,36 +224,43 @@ function buildLocationList(data) {
             // 2. Close all other popups and display popup for clicked store
             createPopUp(clickedListing);
             // 3. Highlight listing in sidebar (and remove highlight for all other listings)
-            var activeItem = document.getElementsByClassName('active');
-            if (activeItem[0]) {
-                activeItem[0].classList.remove('active');
-            }
-            this.parentNode.classList.add('active');
+            resetHighlightItems();
+            resetActiveItems();
+            this.classList.add('highlight', 'active');
         });
 
     }
 }
 
 
-stores.features.forEach(function (marker) {
+stores.features.forEach(function (marker, i) {
     // Create a div element for the marker
     var el = document.createElement('div');
     // Add a class called 'marker' to each div
-
     el.addEventListener('click', function (e) {
-        var activeItem = document.getElementsByClassName('active');
         // 1. Fly to the point
         flyToStore(marker);
         // 2. Close all other popups and display popup for clicked store
         createPopUp(marker);
         // 3. Highlight listing in sidebar (and remove highlight for all other listings)
         e.stopPropagation();
-        if (activeItem[0]) {
-            activeItem[0].classList.remove('active');
-        }
+        resetHighlightItems();
+        resetActiveItems();
         var listing = document.getElementById('listing-' + i);
-        console.log(listing);
-        listing.classList.add('active');
+        listing.classList.add('highlight', 'active');
+    });
+
+    el.addEventListener('mouseover', function (e) {
+        createPopUp(marker);
+        e.stopPropagation();
+        resetHighlightItems();
+        var listing = document.getElementById('listing-' + i);
+        listing.classList.add('highlight');
+    });
+
+    el.addEventListener('mouseout', function (e) {
+        removePopups();
+        resetHighlightItems();
     });
 
     el.className = 'marker';
