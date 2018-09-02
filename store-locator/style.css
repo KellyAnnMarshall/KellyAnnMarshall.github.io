@@ -40,13 +40,12 @@ body {
     position: absolute;
     width: 100%;
     height: 70%;
-    top: 250px;
     z-index: 1;
   }
 
   .heading {
-    background: #1d5078;
-    border-bottom: 1px solid #eee;
+    background: #0C3B60;
+    border-bottom: 1px solid #427ba7;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     color: #fff;
     height: 60px;
@@ -55,8 +54,12 @@ body {
   }
 
   address {
-      font-style: normal;
-      padding: 10px;
+    font-style: normal;
+    padding: 10px;
+  }
+
+  .list-address {
+    padding: 0;
   }
 
   address span {
@@ -70,12 +73,15 @@ body {
   }
   
   .item {
+    background-color: #1d5078;
+    border-bottom: 1px solid #427ba7;
     display: block;
-    border-bottom: 1px solid #1d5078;
-    padding: 10px;
-    text-decoration: none;
-    background-color: #ccc;
-    transition: all .250s;
+    position: relative;
+    transition: all .5s;
+  }
+
+  .item.active {
+    background-color: #fff;
   }
   
   .item:last-child { border-bottom: none; }
@@ -83,46 +89,81 @@ body {
   .title {
     display: block;
     font-weight: 400;
-    color: #0c3b60;
+    color: #FFFFFF;
     margin: 0;
+    transition: color .5s;
+    padding: 10px;
   }
 
-  .list-address {
-    position: absolute;
-    padding: 0;
+  .details {
     clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+    padding: 0 10px;
+    position: absolute;
+    transition: opacity 0.5s ease;
   }
 
-  .item.active .list-address {
+  .item.active .details {
     position: relative;
+    opacity: 1;
     clip: none;
   }
 
-  .greenville.active {
-    background: url('images/greenville.png') no-repeat center top;
-    background-size: 100% 140px;
-    padding-top: 150px;
+  .image-container {
+    display: block;
+    height: 0px;
+    position: absolute;
+    transition: height .5s ease;
+    top: 0;
+    width: 100%;
   }
 
-  .charleston.active {
-    background: url('images/charleston.png') no-repeat center top;
-    background-size: 100% 140px;
-    padding-top: 150px;
+  .active .image-container {
+    height: 140px;
+    position: relative;
+    margin-bottom: 10px;
   }
 
-  .concord.active {
-    background: url('images/concord.png') no-repeat center top;
-    background-size: 100% 140px;
-    padding-top: 150px;
+  .active .greenville{
+    background: url('images/greenville.png') no-repeat center;
+    background-size: cover;
+  }
+
+  .active .charleston{
+    background: url('images/charleston.png') no-repeat center;
+    background-size: cover;
+  }
+
+  .active .concord{
+    background: url('images/concord.png') no-repeat center;
+    background-size: cover;
+  }
+
+  dl dt,
+  dl dd {
+    display:inline-block;
+    margin:0;
+  }
+  
+  dl dt{
+    font-weight:600;
+    width:50%;
+  }
+
+  dl dd{
+    width:50%;
   }
   
   .item .title small { font-weight: 400; }
   
-  .item.highlight .title,
-  .item .title:hover { color: #2f5e81; }
-  
   .item.highlight, .item:hover {
     background-color: #fff;
+  }
+
+  .item.active .title,
+  .item.highlight .title,
+  .item:hover .title {
+    color: #0c3b60;
   }
   
   /* Marker tweaks */
@@ -133,7 +174,7 @@ body {
   .mapboxgl-popup-content {
     font: 400 14px/20px Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding: 0;
-    width: 180px;
+    width: 170px;
   }
   
   .mapboxgl-popup-content-wrapper {
@@ -194,18 +235,21 @@ body {
   }
 
   .marker {
-    border: none;
     cursor: pointer;
     height: 56px;
     width: 56px;
-    background-image: url(marker.svg);
-    background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0);
+    background: url(marker.svg) no-repeat;
+  }
+
+  .marker.highlight {
+    background: url(marker-hover.svg) no-repeat;
   }
 
   @media all and (min-width: 600px) {
     .sidebar {
         position: absolute;
+        min-width: 250px;
+        max-width: 250px;
         left: 0;
     }
 

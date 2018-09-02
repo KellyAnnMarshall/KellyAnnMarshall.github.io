@@ -121,6 +121,8 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoia21hcnNoYWxsIiwiYSI6ImNqanIzMzVicjBsc2Uzd3A0c
 // This adds the map to your page
 var map = new mapboxgl.Map(mapOptions);
 
+map.addControl(new mapboxgl.NavigationControl());
+
 map.on('load', function (e) {
     // Add the data to your map as a layer
     map.addSource('places', {
@@ -193,7 +195,6 @@ function buildLocationList(data) {
         var listings = document.getElementById('listings');
         var listing = listings.appendChild(document.createElement('div'));
         listing.className = 'item';
-        listing.classList.add(prop.name);
         listing.id = 'listing-' + i;
 
         // Create a new link with the class 'title' for each store
@@ -203,9 +204,15 @@ function buildLocationList(data) {
         listing.dataPosition = i;
         title.innerHTML = prop.city;
 
+        var imageContainer = listing.appendChild(document.createElement('span'));
+        imageContainer.className = 'image-container ' + prop.name;
+
+        var details = listing.appendChild(document.createElement('div'));
+        details.className = 'details';
+
         // Create a new div with the class 'details' for each store
         // and fill it with the city and phone number
-        var address = listing.appendChild(document.createElement('address'));
+        var address = details.appendChild(document.createElement('address'));
         address.classList.add('list-address');
         address.innerHTML = prop.address;
         address.appendChild(document.createElement('br'));
@@ -214,6 +221,18 @@ function buildLocationList(data) {
         if (prop.phone) {
             address.innerHTML += prop.phoneFormatted;
         }
+        var storeHoursList = details.appendChild(document.createElement('dl'));
+        storeHoursList.classList.add('store-hours');
+        prop.storeHours.forEach((weekday) => {
+            Object.entries(weekday).forEach(
+                ([day, hours]) => {
+                    let dt = storeHoursList.appendChild(document.createElement('dt'));
+                    dt.innerHTML = day;
+                    let dd = storeHoursList.appendChild(document.createElement('dd'));
+                    dd.innerHTML = hours;
+                }
+            );
+        });
 
         // Add an event listener for the links in the sidebar listing
         listing.addEventListener('click', function (e) {
@@ -229,6 +248,15 @@ function buildLocationList(data) {
             this.classList.add('highlight', 'active');
         });
 
+        listing.addEventListener('mouseover', function (e) {
+            var marker = document.querySelector('.marker-' + this.dataPosition);
+            marker.classList.add('highlight');
+        });
+
+        listing.addEventListener('mouseout', function (e) {
+            var marker = document.querySelector('.marker-' + this.dataPosition);
+            marker.classList.remove('highlight');
+        });
     }
 }
 
@@ -236,6 +264,7 @@ function buildLocationList(data) {
 stores.features.forEach(function (marker, i) {
     // Create a div element for the marker
     var el = document.createElement('div');
+
     // Add a class called 'marker' to each div
     el.addEventListener('click', function (e) {
         // 1. Fly to the point
@@ -264,6 +293,7 @@ stores.features.forEach(function (marker, i) {
     });
 
     el.className = 'marker';
+    el.classList.add('marker-' + i);
     // By default the image for your custom marker will be anchored
     // by its center. Adjust the position accordingly
     // Create the custom markers, set their position, and add to map
