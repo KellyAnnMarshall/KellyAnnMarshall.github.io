@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+.timeline__nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.timeline__nav ul {
+    display: inline-flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.timeline__image-responsive {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.timeline__image-responsive img {
+    width: 100%;
+    height: auto; 
+}
+
+.timeline__nav li {
+    width: 100%;
+}
+
+.timeline__nav a {
+    background-color: #700e57;
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    padding: 20px 0;
+    transition: background-color 250ms;
+    width: 100%;
+}
+
+.timeline__nav a:hover {
+    background-color: #929091;
+    color: #fff;
+}
+
+.timeline__intro {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.timeline__content-list {
+    list-style-type: none;
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+.timeline__entry-container {
+    position: relative;
+}
+
+.timeline__section {
+    padding-top: 60px;
+}
+
+.timeline__section header {
+    background-color: #f5f6fa;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.timeline__content-list h2 {
+    margin: 0;
+}
+
+.timeline__content-list h2 span {
+    color: #929091;
+    position: absolute;
+    top: -10px;
+}
+
+.timeline__content-list h2 span:before {
+    background-color: #fff;
+    border-radius: 50%;
+    border: 4px solid #929091;
+    content: '';
+    height: 20px;
+    left: -30px;
+    position: absolute;
+    top: 10px;
+    width: 20px;
+}
+
+.timeline__content-list-item--feature {
+    padding-top: 40px;
+    background-color: #eee;
+    margin-bottom: 20px;
+}
+
+.timeline__intro {
+    text-align: center;
+    margin: 20px auto 40px;
+    max-width: 600px;
+}
+
+.timeline__entry-container {
+    border-left: 1px solid #929091;
+    padding: 30px 20px;
+}
+
+@media screen and (min-width: 600px) {
+
+    .timeline__entry-container {
+        width: calc(50% + 1px);
+    }
+
+    .timeline__content-list-item:nth-of-type(even) .timeline__entry-container {
+        border-left: none;
+        border-right: 1px solid #929091;
+        text-align: right;
+    }
+
+    .timeline__content-list-item:nth-of-type(even) h2 span {
+        right: 20px;
+    }
+
+    .timeline__content-list-item:nth-of-type(even) span:before {
+        left: auto;
+        right: -30px;
+    }
+
+    .timeline__content-list-item:nth-of-type(odd) .timeline__entry-container {
+        margin-left: 50%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+   
+}
