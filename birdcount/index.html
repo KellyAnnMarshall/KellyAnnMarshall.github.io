@@ -16,50 +16,78 @@
 </head>
 
 <body ng-controller="BirdController as $ctrl">
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <h1>Garden Bird Count</h1>
-            <form class="form-inline">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Filter birds" aria-label="Filter birds" ng-model="$ctrl.searchText">
-                    <div class="input-group-append">
-                        <button type="button" class="input-group-text" ng-click="$ctrl.clearSearch()">Clear</button>
-                    </div>
-                </div>
-            </form>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <h1>Garden Bird Count</h1>
+                <p>This was a quick app inspired by the annual <a
+                        href="https://www.rspb.org.uk/get-involved/activities/birdwatch/" target="blank">RSPB Big
+                        Garden Birdwatch</a> event. It's to help survey the various birds
+                    visiting the garden over the course of an hour and also a way to help identify garden bird songs.
+                    Try
+                    clicking on the photos of the birds.</p>
+                <p>The app is build using AngularJS, ChartJS and Bootstrap</p>
+            </div>
+
         </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-5">
-                <ul class="list">
-                    <li ng-repeat="bird in $ctrl.birdData | filter:{name: $ctrl.searchText}">
+    </header>
+    <main>
+        <div class="sticky-top mb-3 search-wrapper">
+            <div class="container">
+                <form role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" placeholder="Filter birds"
+                            aria-label="Filter birds" ng-model="$ctrl.searchText">
+                        <div class="input-group-append" ng-if="$ctrl.searchText.length">
+                            <button type="button" class="input-group-text" ng-click="$ctrl.clearSearch()">Clear</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <ul class="list row">
+                <li class="col-md-6 col-lg-4" ng-repeat="bird in $ctrl.birdData | filter:{name: $ctrl.searchText}">
+                    <div class="list-cards">
+                        <h2>{{ bird.name }}</h2>
                         <div class="row">
-                            <div class="col-6">
-                                <h2>{{ bird.name }}</h2>
-                                <img class="img-fluid" ng-src="images/{{ bird.shortname }}.png" ng-click="$ctrl.play(bird.id);">
+                            <div class="col">
+                                <img ng-src="images/{{ bird.shortname }}.png" ng-click="$ctrl.play(bird.id);">
                                 <audio id="audio_{{bird.id}}" ng-src="{{bird.birdAudioPath | trustUrl}}"></audio>
                             </div>
-                            <div class="col-6 align-self-end">
-                                <h2 class="count">{{ bird.count}}</h2>
-                                <div class="btn-group">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-lg btn-secondary" ng-click="$ctrl.addBird(bird);">+</button>
-                                        <button type="button" class="btn btn-lg btn-secondary" ng-click="$ctrl.removeBird(bird);">-</button>
-                                    </div>
+                            <div class="col">
+                                <div class="count align-items-center justify-content-center count-wrapper">
+                                    {{ bird.count}}
                                 </div>
                             </div>
+
+                            <div class="col">
+                                <div class="d-flex flex-column flex-md-row justify-content-between">
+                                    <button type="button"
+                                        class="btn btn-lg btn-secondary py-2 mb-3 mb-md-0 mt-md-3 mr-md-2"
+                                        ng-click="$ctrl.addBird(bird);">+</button>
+                                    <button type="button" class="btn btn-lg btn-secondary mt-md-3 py-2 ml-md-2"
+                                        ng-click="$ctrl.removeBird(bird);">-</button>
+                                </div>
+                            </div>
+
                         </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-7">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div ng-show="$ctrl.showCount" class="chart-wrapper">
+            <div class="container">
                 <canvas id="canvas"></canvas>
             </div>
         </div>
-        <script src="js/app.js"></script>
-        <script src="js/services/BirdService.js"></script>
-        <script src="js/controllers/BirdController.js"></script>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script src="js/services/BirdService.js"></script>
+    <script src="js/controllers/BirdController.js"></script>
 </body>
 
 </html>

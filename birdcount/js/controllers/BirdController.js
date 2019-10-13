@@ -4,27 +4,28 @@ function BirdController(BirdService) {
     $ctrl.birdNames = [];
     $ctrl.birdCounts = [];
     $ctrl.backgroundColor = [];
-    
-    var getBirds = function(){
+    $ctrl.showCount = false;
+
+    var getBirds = function () {
         BirdService.getBirds()
-        .then(function (response) {
-          return $ctrl.birdData = response;
-        })
-        .then(initProperties);
+            .then(function (response) {
+                return $ctrl.birdData = response;
+            })
+            .then(initProperties);
     }
 
-    var initProperties = function() {
-        $ctrl.birdData.map(function(bird) {
+    var initProperties = function () {
+        $ctrl.birdData.map(function (bird) {
             $ctrl.birdNames.push(bird.name);
             $ctrl.birdCounts.push(bird.count);
             $ctrl.backgroundColor.push(bird.backgroundColor);
         });
     }
 
-    $ctrl.$onInit = function() {
+    $ctrl.$onInit = function () {
         $ctrl.birdData = getBirds();
     };
-    
+
     $ctrl.play = (id) => {
         var audio_id = 'audio_' + id;
         var audio = document.getElementById(audio_id);
@@ -34,25 +35,26 @@ function BirdController(BirdService) {
             audio.pause();
     }
 
-    $ctrl.clearSearch = function() {
+    $ctrl.clearSearch = function () {
         $ctrl.searchText = '';
     };
 
     $ctrl.addBird = (bird) => {
         var id = bird.id;
         bird.count += 1;
-        chart.data.datasets.map(function(dataset) {
+        chart.data.datasets.map(function (dataset) {
             dataset.data[id - 1] += 1;
         });
         chart.update();
+        $ctrl.showCount = true;
     };
 
     $ctrl.removeBird = (bird) => {
         var id = bird.id;
-        if(bird.count > 0) {
+        if (bird.count > 0) {
             bird.count -= 1;
-        } 
-        chart.data.datasets.map(function(dataset) {
+        }
+        chart.data.datasets.map(function (dataset) {
             if (dataset.data[id - 1] > 0) {
                 dataset.data[id - 1] -= 1;
             }
@@ -110,8 +112,8 @@ function BirdController(BirdService) {
 angular
     .module('app')
     .controller('BirdController', BirdController)
-    .filter('trustUrl', function($sce) {
-        return function(url) {
+    .filter('trustUrl', function ($sce) {
+        return function (url) {
             return $sce.trustAsResourceUrl(url);
         };
     });
