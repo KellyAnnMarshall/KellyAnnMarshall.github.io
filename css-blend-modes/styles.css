@@ -36,6 +36,7 @@ body {
     padding: 0;
     overflow: hidden;
     display: block;
+    height: 93vh;
 }
 
 .item_1 {
@@ -201,7 +202,7 @@ span {
 nav {
     background-color: #999;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    height: 50px;
+    height: 7vh;
     padding: 5px;
     position: fixed;
     text-align: right;
@@ -223,7 +224,7 @@ select {
     color: #fff;
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
-    padding: 0.5em 3.5em 0.5em 1em;
+    padding: 5px 45px 5px 5px;
   /* make arrow and background */
 
   background:
@@ -231,8 +232,8 @@ select {
     linear-gradient(135deg, #fff 50%, transparent 50%),
     linear-gradient(to right, #666, #666);
     background-position:
-    calc(100% - 21px) calc(1em + 2px),
-    calc(100% - 16px) calc(1em + 2px),
+    calc(100% - 20px) 15px,
+    calc(100% - 15px) 15px,
     100% 0;
     background-size:
     5px 5px,
@@ -255,12 +256,12 @@ select {
     }
 
     .item  {
-        flex-basis: 33.33333vw;
-        height: 33.33333vh;
+        flex-basis: calc(100vw / 3);
+        height: calc(93vh / 3);
     }
 
     .list {
-        height: 100vh;
+        height: 92vh;
         margin: 0;
     }
 }
