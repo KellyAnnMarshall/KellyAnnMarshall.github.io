@@ -1,69 +1,40 @@
-$(document).ready(function () {
+var scrollTriggers = document.querySelectorAll('.scroll');
+
+[].forEach.call(scrollTriggers, (trigger) => {
+    trigger.addEventListener('click', (e) => {
+        var target = document.getElementById(e.currentTarget.dataset.hook + '_target')
+        target.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+    })
+})
+
+document.querySelector('[data-hook="contact"]').addEventListener('click', (e) => {
+    document.querySelector('.animation').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+    document.querySelector('input[name="name"]').focus();
+})
 
 
-    $(".scroll").click(function (e) {
-        e.preventDefault();
-        var scroll_to = $(this).attr('data-hook');
-        $('html, body').animate({
-            scrollTop: $('#' + scroll_to + '_target').offset().top - 20
-        }, 1000);
-    });
+var contactFormMarkup = `
+<form method="POST" action="https://formspree.io/rocksteady_tnt@yahoo.com">
+<input type="hidden" name="_subject" value="Your enquiry to Kelly Ann Marshall" />
+<label for="name">Name* <span class="required-flag">This field is required</span><input autocomplete="name" type="text" name="name" required></label>
+<label for="_replyto">Email* <span class="required-flag">This field is required</span><input autocomplete="email" type="email" name="_replyto" required></label>
+<label for="phone">Phone <input autocomplete="tel-national" type="tel" name="phone"></label>
+<label for="message">Message* <span class="required-flag">This field is required</span><textarea name="message" required></textarea></label>
+<input type="hidden" name="_next" value="https://kellyannmarshall.github.io" />
+<input type="text" name="_gotcha" style="display:none" autocomplete="nope" />
+<button type="submit">Send</button>
+</form>`;
 
-    $(".fancybox-effects-a").fancybox({
-        helpers: {
-            title: {
-                type: 'outside'
-            },
-            overlay: {
-                speedOut: 0
-            }
-        }
-    });
+document.querySelector('.form_container').innerHTML = contactFormMarkup;
 
-    $('[data-hook="contact"]').click(function () {
-        $('input[name="name"]').focus();
-    });
+document.getElementById("switch").addEventListener('click', (e) => {
+    var page_container = document.querySelector('.page_wrapper');
+    var off_canvas_navigation = document.querySelector('.off_canvas_navigation');
+    (e.currentTarget.classList.contains('active') === true) ? e.currentTarget.classList.remove('active') : e.currentTarget.classList.add('active');
+    (page_container.classList.contains("offset") === true) ? page_container.classList.remove('offset') : page_container.classList.add('offset');
+    (off_canvas_navigation.classList.contains("active") === true) ? off_canvas_navigation.classList.remove('active') : off_canvas_navigation.classList.add('active');
+})
 
-
-    var contactFormMarkup = '<form method="POST" action="https://formspree.io/rocksteady_tnt@yahoo.com">';
-    contactFormMarkup += '<input type="hidden" name="_subject" value="Your enquiry to Kelly Ann Marshall" />';
-    contactFormMarkup += '<label for="name">Name* <span class="required-flag">This field is required</span><input autocomplete="name" type="text" name="name" required></label>';
-    contactFormMarkup += '<label for="_replyto">Email* <span class="required-flag">This field is required</span><input autocomplete="email" type="email" name="_replyto" required></label>';
-    contactFormMarkup += '<label for="phone">Phone <input autocomplete="tel-national" type="tel" name="phone"></label>';
-    contactFormMarkup += '<label for="message">Message* <span class="required-flag">This field is required</span><textarea name="message" required></textarea></label>';
-    contactFormMarkup += '<input type="hidden" name="_next" value="https://kellyannmarshall.github.io" />';
-    contactFormMarkup += '<input type="text" name="_gotcha" style="display:none" autocomplete="nope" />';
-    contactFormMarkup += '<button type="submit">Send</button>';
-
-    contactFormMarkup += '</form>';
-
-    $('.phone_email').after(contactFormMarkup);
-
-
-    (function () {
-
-        "use strict";
-
-        var toggles = document.querySelectorAll(".switch");
-
-        for (var i = toggles.length - 1; i >= 0; i--) {
-            var toggle = toggles[i];
-            toggleHandler(toggle);
-        };
-
-        function toggleHandler(toggle) {
-            toggle.addEventListener("click", function (e) {
-                e.preventDefault();
-                var page_container = $('.page_wrapper'),
-                    off_canvas_navigation = $('.off_canvas_navigation');
-                (this.classList.contains("active") === true) ? this.classList.remove("active") : this.classList.add("active");
-                (page_container.hasClass("offset") === true) ? page_container.removeClass('offset') : page_container.addClass('offset');
-                (off_canvas_navigation.hasClass("active") === true) ? off_canvas_navigation.removeClass('active') : off_canvas_navigation.addClass('active');
-
-            });
-        }
-
-    })();
 
     (function () {
 
@@ -149,5 +120,3 @@ $(document).ready(function () {
         }
 
     })();
-
-});
