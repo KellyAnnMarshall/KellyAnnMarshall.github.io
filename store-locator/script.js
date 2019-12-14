@@ -21,6 +21,7 @@ var stores = {
             },
             "properties": {
                 "name": "greenville",
+                "imageSrc": "images/greenville.png",
                 "phoneFormatted": "(864) 233-7484",
                 "phone": "8642337484",
                 "address": "280 Rainforest Way",
@@ -46,12 +47,45 @@ var stores = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -81.065203,
+                    33.967728
+                ]
+            },
+            "properties": {
+                "name": "cayce",
+                "imageSrc": "images/cayce.png",
+                "phoneFormatted": "(803) 999-1412",
+                "phone": "8039991412",
+                "address": "1303 Dunbar Road",
+                "city": "Cayce",
+                "country": "United States",
+                "postalCode": "29033",
+                "state": "SC",
+                "storeHours": [
+                    {
+                        "Monday": "7am - 5pm",
+                        "Tuesday": "7am - 5pm",
+                        "Wednesday": "7am - 5pm",
+                        "Thursday": "7am - 5pm",
+                        "Friday": "7am - 5pm",
+                        "Saturday": "closed",
+                        "Sunday": "closed",
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -80.573589,
                     35.376411
                 ]
             },
             "properties": {
                 "name": "concord",
+                "imageSrc": "images/concord.png",
                 "phoneFormatted": "(704) 795-3774",
                 "phone": "7047953774",
                 "address": "2900 Armentrout Drive",
@@ -83,6 +117,7 @@ var stores = {
             },
             "properties": {
                 "name": "charleston",
+                "imageSrc": "images/charleston.png",
                 "phoneFormatted": "(843) 207-8181",
                 "phone": "8432078181",
                 "address": "6470 Dorchester Road",
@@ -107,13 +142,9 @@ var stores = {
 };
 
 var mapOptions = {
-    // container id specified in the HTML
     container: 'map',
-    // style URL
-    style: 'mapbox://styles/kmarshall/cjjyeb8g720tx2rrsvij1w3f5',
-    // initial position in [lon, lat] format
+    style: 'mapbox://styles/mapbox/streets-v11',
     center: [-80.713703, 34.394260],
-    // initial zoom
     zoom: 6
 };
 
@@ -129,17 +160,41 @@ map.on('load', function (e) {
         type: 'geojson',
         data: stores
     });
+    map.scrollZoom.disable();
+    // disable map rotation using right click + drag
+    map.dragRotate.disable();
+    // disable map rotation using touch rotation gesture
+    map.touchZoomRotate.disableRotation();
+
     buildLocationList(stores);
+    addEventListeners(stores);
 });
 
-function flyToStore(currentFeature) {
-    map.flyTo({
-        center: currentFeature.geometry.coordinates,
-        zoom: 16
+addEventListeners = (data) => {
+    var buttons = document.querySelectorAll('.list-item__button');
+    [].forEach.call(buttons, (button) => {
+        button.addEventListener('click', (e) => {
+            var clickedListing = data.features[e.currentTarget.dataset.position];
+            // 1. Fly to the point associated with the clicked link
+            // 2. Close all other popups and display popup for clicked store
+            createPopUp(clickedListing);
+            // 3. Highlight listing in sidebar (and remove highlight for all other listings)
+            resetHighlightItems();
+            resetActiveItems();
+            document.querySelector('[data-item="' + e.currentTarget.dataset.position + '"]').classList.add('highlight', 'active');
+        });
+
+        button.addEventListener('mouseenter', (e) => {
+            e.currentTarget.classList.add('highlight');
+        });
+
+        button.addEventListener('mouseleave', (e) => {
+            e.currentTarget.classList.remove('highlight');
+        });
     });
 }
 
-function resetMap() {
+resetMap = () => {
     resetHighlightItems();
     resetActiveItems();
     removePopups();
@@ -149,27 +204,28 @@ function resetMap() {
     })
 }
 
-function resetHighlightItems() {
-    var highlightItem = document.getElementsByClassName('highlight');
-    if (highlightItem[0]) {
-        highlightItem[0].classList.remove('highlight');
-    }
+resetHighlightItems = () => {
+    var highlightItems = document.querySelectorAll('.highlight');
+    [].forEach.call(highlightItems, (item) => {
+        item.classList.remove('highlight');
+    })
 }
 
-function resetActiveItems() {
-    var activeItem = document.getElementsByClassName('active');
-    if (activeItem[0]) {
-        activeItem[0].classList.remove('active');
-    }
+resetActiveItems = () => {
+    var activeItems = document.querySelectorAll('.active');
+    [].forEach.call(activeItems, (item) => {
+        item.classList.remove('active');
+    })
 }
 
-function removePopups() {
-    var popUps = document.getElementsByClassName('mapboxgl-popup');
-    // remove any exisiting popups
-    if (popUps[0]) popUps[0].remove();
+removePopups = () => {
+    var popUps = document.querySelectorAll('.mapboxgl-popup');
+    [].forEach.call(popUps, (item) => {
+        item.remove();
+    })
 }
 
-function createPopUp(currentFeature) {
+createPopUp = (currentFeature) => {
     removePopups();
 
     var popup = new mapboxgl.Popup({ closeOnClick: false })
@@ -183,121 +239,79 @@ function createPopUp(currentFeature) {
         .addTo(map);
 }
 
-function buildLocationList(data) {
-    // Iterate through the list of stores
-    for (i = 0; i < data.features.length; i++) {
-        var currentFeature = data.features[i];
-        // Shorten data.feature.properties to just `prop` so we're not
-        // writing this long form over and over again.
-        var prop = currentFeature.properties;
-        // Select the listing container in the HTML and append a div
-        // with the class 'item' for each store
-        var listings = document.getElementById('listings');
-        var listing = listings.appendChild(document.createElement('div'));
-        listing.className = 'item';
-        listing.id = 'listing-' + i;
-
-        // Create a new link with the class 'title' for each store
-        // and fill it with the store address
-        var title = listing.appendChild(document.createElement('h2'));
-        title.className = 'title';
-        listing.dataPosition = i;
-        title.innerHTML = prop.city;
-
-        var imageContainer = listing.appendChild(document.createElement('span'));
-        imageContainer.className = 'image-container ' + prop.name;
-
-        var details = listing.appendChild(document.createElement('div'));
-        details.className = 'details';
-
-        // Create a new div with the class 'details' for each store
-        // and fill it with the city and phone number
-        var address = details.appendChild(document.createElement('address'));
-        address.classList.add('list-address');
-        address.innerHTML = prop.address;
-        address.appendChild(document.createElement('br'));
-        address.innerHTML += prop.city + ', ' + prop.state;
-        address.appendChild(document.createElement('br'));
-        if (prop.phone) {
-            address.innerHTML += prop.phoneFormatted;
-        }
-        var storeHoursList = details.appendChild(document.createElement('dl'));
-        storeHoursList.classList.add('store-hours');
-        prop.storeHours.forEach((weekday) => {
+buildLocationList = (data) => {
+    data.features.map((feature, index) => {
+        var storeHoursMarkup = "";
+        feature.properties.storeHours.forEach((weekday) => {
             Object.entries(weekday).forEach(
                 ([day, hours]) => {
-                    let dt = storeHoursList.appendChild(document.createElement('dt'));
-                    dt.innerHTML = day;
-                    let dd = storeHoursList.appendChild(document.createElement('dd'));
-                    dd.innerHTML = hours;
+                    storeHoursMarkup += '<dt>' + day + '</dt><dd>' + hours + '</dd>'
                 }
             );
         });
 
-        // Add an event listener for the links in the sidebar listing
-        listing.addEventListener('click', function (e) {
-            // Update the currentFeature to the store associated with the clicked link
-            var clickedListing = data.features[this.dataPosition];
-            // 1. Fly to the point associated with the clicked link
-            flyToStore(clickedListing);
-            // 2. Close all other popups and display popup for clicked store
-            createPopUp(clickedListing);
-            // 3. Highlight listing in sidebar (and remove highlight for all other listings)
-            resetHighlightItems();
-            resetActiveItems();
-            this.classList.add('highlight', 'active');
-        });
-
-        listing.addEventListener('mouseover', function (e) {
-            var marker = document.querySelector('.marker-' + this.dataPosition);
-            marker.classList.add('highlight');
-        });
-
-        listing.addEventListener('mouseout', function (e) {
-            var marker = document.querySelector('.marker-' + this.dataPosition);
-            marker.classList.remove('highlight');
-        });
-    }
+        var listMarkup = `
+            <li class="list-item" data-item="${index}">
+                <h2>
+                    <button 
+                        class="list-item__button" 
+                        data-position="${index}">
+                        ${feature.properties.city}
+                    </button>
+                </h2>
+                <div class="details">
+                    <figure class="image-container">
+                        <img src="${feature.properties.imageSrc}" alt="${feature.properties.city} store" />
+                    </figure>
+                    <div class="details-body">
+                        <address class="list-address">
+                            <span>${feature.properties.address}</span>
+                            <span>${feature.properties.city}, ${feature.properties.state}</span>
+                            <span>${feature.properties.phoneFormatted}</span>
+                        </address>
+                        <h3>Store Hours</h3>
+                        <dl class="store-hours">
+                            ${storeHoursMarkup}
+                        </dl>
+                    </div>
+                </div>
+            </li>
+        `;
+        document.getElementById('listings').innerHTML += listMarkup;
+    })
 }
 
 
-stores.features.forEach(function (marker, i) {
-    // Create a div element for the marker
-    var el = document.createElement('div');
+stores.features.forEach((marker, index) => {
+    var button = document.createElement('button');
 
-    // Add a class called 'marker' to each div
-    el.addEventListener('click', function (e) {
-        // 1. Fly to the point
-        flyToStore(marker);
-        // 2. Close all other popups and display popup for clicked store
+    button.addEventListener('click', (e) => {
         createPopUp(marker);
-        // 3. Highlight listing in sidebar (and remove highlight for all other listings)
         e.stopPropagation();
         resetHighlightItems();
         resetActiveItems();
-        var listing = document.getElementById('listing-' + i);
+        var listing = document.querySelector('[data-item="' + index + '"]');
         listing.classList.add('highlight', 'active');
     });
 
-    el.addEventListener('mouseover', function (e) {
+    button.addEventListener('mouseenter', (e) => {
         createPopUp(marker);
         e.stopPropagation();
         resetHighlightItems();
-        var listing = document.getElementById('listing-' + i);
+        var listing = document.querySelector('[data-item="' + index + '"]');
         listing.classList.add('highlight');
+        e.currentTarget.classList.add('highlight');
     });
 
-    el.addEventListener('mouseout', function (e) {
+    button.addEventListener('mouseleave', (e) => {
         removePopups();
         resetHighlightItems();
     });
 
-    el.className = 'marker';
-    el.classList.add('marker-' + i);
-    // By default the image for your custom marker will be anchored
-    // by its center. Adjust the position accordingly
-    // Create the custom markers, set their position, and add to map
-    new mapboxgl.Marker(el, { offset: [0, -23] })
+    button.className = 'marker';
+    button.classList.add('marker-' + index);
+
+    new mapboxgl.Marker(button, { offset: [0, -23] })
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
 });

@@ -1,5 +1,8 @@
 body {
     font-family: 'Droid Serif';
+    background-color: #232930;
+    color: rgb(173, 175, 166);
+    font-size: 1.2rem;
 }
 
 header {
@@ -53,12 +56,6 @@ a:hover {
 
 h2 {
     font-size: 1.7rem;
-}
-
-body {
-    background-color: #232930;
-    color: rgb(173, 175, 166);
-    font-size: 1.2rem;
 }
 
 span {
