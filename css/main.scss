@@ -46,7 +46,6 @@ h4 {
   }
 }
 
-
 h5 em {
   font-weight: normal;
 }
@@ -55,7 +54,6 @@ h5 em {
 .details {
   max-width: 700px;
 }
-
 
 .gallery a img {
   width: 100%;
@@ -106,7 +104,6 @@ ul {
 }
 
 form {
-  position: absolute;
   margin-top: 40px;
   width: 100%;
 }
@@ -118,6 +115,10 @@ textarea {
   display: block;
   margin: 10px 0px;
   width: 100%;
+
+  &:focus {
+    outline: $theme_color auto 5px;
+  }
 }
 
 input::-moz-focus-inner {
@@ -181,6 +182,7 @@ textarea {
 .page_wrapper {
   margin-left: 0;
   transition: all 0.3s;
+  overflow: hidden;
   &.offset {
     width: calc(100% - 110px);
   }
@@ -199,7 +201,7 @@ header {
     width: 100%;
   }
 
-  .container{
+  .container {
     position: relative;
     padding-top: 130px;
 
@@ -375,7 +377,7 @@ footer h2 {
   margin: 0 0 12px;
   font-size: 1.5em;
   li {
-      margin-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
     @media screen and (min-width: 800px) {
       display: inline;
       &::after {
@@ -473,5 +475,53 @@ nav ul li a:hover {
   opacity: 0.5;
   &:hover {
     opacity: 1;
+  }
+}
+
+.footer {
+  background: #000000;
+  position: relative;
+  margin-top: 200px;
+  padding-top: 100px;
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: #000000;
+  z-index: -1;
+  filter: url("#blob");
+
+  .bubble {
+    position: absolute;
+    left: var(--position, 50%);
+    background: #000000;
+    border-radius: 100%;
+    animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+      bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+    transform: translate(-50%, 100%);
+  }
+}
+
+@keyframes bubble-size {
+  0%,
+  75% {
+    width: 80px;
+    height: 80px;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}
+@keyframes bubble-move {
+  0% {
+    bottom: -80px;
+  }
+  100% {
+    bottom: 200px;
   }
 }
