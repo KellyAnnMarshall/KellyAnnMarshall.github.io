@@ -96,10 +96,18 @@
 },
 {
     "id": 13,
+    "name": "Siskin",
+    "shortname": "siskin",
+    "count": 0,
+    "backgroundColor": "#F0CA4D",
+    "birdAudioPath": "birdsongs/siskin.mp3"
+},
+{
+    "id": 14,
     "name": "Starling",
     "shortname": "starling",
     "count": 0,
-    "backgroundColor": "#F0CA4D",
+    "backgroundColor": "#46B29D",
     "birdAudioPath": "birdsongs/starling.mp3"
 }
 ]
