@@ -2,6 +2,7 @@ _site
 .sass-cache
 .jekyll-cache/
 .jekyll-metadata
+.vs-code/
 
 source/.DS_Store
 
