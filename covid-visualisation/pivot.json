@@ -1,0 +1,42 @@
+[
+  {
+    "country": "Brazil",
+    "deaths": "6 553"
+  },
+  {
+    "country": "USA",
+    "deaths": "3 807"
+  },
+  {
+    "country": "Mexico",
+    "deaths": "3 518"
+  },
+  {
+    "country": "India",
+    "deaths": "2 800"
+  },
+  {
+    "country": "Peru",
+    "deaths": "1 085"
+  },
+  {
+    "country": "Russia",
+    "deaths": "995"
+  },
+  {
+    "country": "Iran",
+    "deaths": "901"
+  },
+  {
+    "country": "Colombia",
+    "deaths": "841"
+  },
+  {
+    "country": "Chile",
+    "deaths": "733"
+  },
+  {
+    "country": "South Africa",
+    "deaths": "670"
+  }
+ ]
