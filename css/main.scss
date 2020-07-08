@@ -62,7 +62,7 @@ h5 em {
 a,
 button {
   &:focus {
-    outline: 0;
+    outline: $theme_color auto 5px;
   }
 }
 
