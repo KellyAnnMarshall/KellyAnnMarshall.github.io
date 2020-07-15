@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 importScripts(
-  "/heatmap/precache-manifest.ca2e7d99cc7046cc6e3a1f4c4079d251.js"
+  "/precache-manifest.1d14f7c3a586329ee1f971c772abb18e.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "heatmap-vue"});
