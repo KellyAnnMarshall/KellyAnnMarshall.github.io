@@ -1,82 +1,82 @@
 [
   {
     "country": "Brazil",
-    "deaths": "6 553"
+    "deaths": "17 052"
   },
   {
     "country": "USA",
-    "deaths": "3 807"
+    "deaths": "11 279"
   },
   {
     "country": "Mexico",
-    "deaths": "3 518"
+    "deaths": "9 785"
   },
   {
     "country": "India",
-    "deaths": "2 800"
+    "deaths": "8 022"
   },
   {
     "country": "Peru",
-    "deaths": "1 085"
-  },
-  {
-    "country": "Russia",
-    "deaths": "995"
+    "deaths": "2 913"
   },
   {
     "country": "Iran",
-    "deaths": "901"
+    "deaths": "2 740"
+  },
+  {
+    "country": "Russia",
+    "deaths": "2 604"
   },
   {
     "country": "Colombia",
-    "deaths": "841"
-  },
-  {
-    "country": "Chile",
-    "deaths": "733"
+    "deaths": "2 591"
   },
   {
     "country": "South Africa",
-    "deaths": "670"
+    "deaths": "1 924"
   },
   {
-    "country": "UK",
-    "deaths": "645"
+    "country": "Chile",
+    "deaths": "1 611"
   },
   {
     "country": "Iraq",
-    "deaths": "634"
+    "deaths": "1 593"
+  },
+  {
+    "country": "UK",
+    "deaths": "1 478"
   },
   {
     "country": "Egypt",
-    "deaths": "471"
+    "deaths": "1 195"
   },
   {
     "country": "Pakistan",
-    "deaths": "458"
+    "deaths": "1 122"
   },
   {
     "country": "Indonesia",
-    "deaths": "366"
+    "deaths": "992"
   },
   {
     "country": "Bolivia",
-    "deaths": "363"
-  },
-  {
-    "country": "Saudi Arabia",
-    "deaths": "317"
-  },
-  {
-    "country": "Ecuador",
-    "deaths": "279"
-  },
-  {
-    "country": "Bangladesh",
-    "deaths": "269"
+    "deaths": "871"
   },
   {
     "country": "Argentina",
-    "deaths": "210"
+    "deaths": "770"
+  },
+  {
+    "country": "Saudi Arabia",
+    "deaths": "726"
+  },
+  {
+    "country": "Bangladesh",
+    "deaths": "674"
+  },
+  {
+    "country": "Ecuador",
+    "deaths": "656"
   }
 ]
