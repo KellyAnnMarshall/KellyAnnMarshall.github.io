@@ -317,6 +317,10 @@ footer h2 {
   &.active {
     right: 120px;
   }
+
+  &:focus-within {
+    outline: none;
+  }
 }
 
 .switch span {
