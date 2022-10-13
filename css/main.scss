@@ -155,7 +155,12 @@ button[type="submit"] {
 }
 
 .job_title {
-  font-style: italic;
+  font-weight: 600;
+}
+
+.location_duration {
+  color: white;
+  font-size: 1rem;
 }
 
 #js_contact {
@@ -234,7 +239,6 @@ footer h2 {
 .organization {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #6d6e67;
   h4,
   .location_duration {
     display: inline;
