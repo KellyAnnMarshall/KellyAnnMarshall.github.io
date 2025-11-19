@@ -1,0 +1,5 @@
+# Ignore the compiled site file that contains Jekyll frontmatter
+/_site/assets/css/styles.scss
+
+# You can also ignore the whole _site folder if you prefer:
+# _site/

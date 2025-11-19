@@ -14,7 +14,7 @@
         {% include portfolio.html %}
         <section class="details">
         
-          <h2 id="cv_target">CV<a href="/images/KellyAnnMarshallCV.pdf" target="_blank" class="icon-link cv">Download
+          <h2 id="cv_target">CV<a href="{{'/assets/images/KellyAnnMarshallCV.pdf' | relative_url }}" target="_blank" class="icon-link cv">Download
               CV</a></h2>
           <h3>Summary</h3>
           <p>Experienced and talented web developer who is self-motivated, client-centric, creative, insightful and versatile. Adept at innovating user experience for web applications. Exceptional interpersonal skills and is efficient, organised, resourceful, flexible, reliable and willing to listen and contribute with clients and team members. Available for fully remote full-time permanent positions.</p>
@@ -157,7 +157,7 @@
 
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="{{ 'assets/js/app.js' | relative_url}}"></script>
 </body>
 
 </html>
