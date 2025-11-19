@@ -1,6 +1,3 @@
----
----
-
 $background_color: #282828;
 $text_color: #191919;
 $white: #fff;
@@ -19,6 +16,13 @@ h1 {
   font-size: 2.5rem;
   line-height: 3rem;
   margin: 0 0 1.5rem;
+
+  span {
+    display: block;
+    margin-bottom: 1rem;
+    color: $theme_color;
+    font-size: 2rem;
+  }
 }
 
 h2 {
@@ -174,6 +178,7 @@ button[type="submit"] {
   @media screen and (min-width: 650px) {
     margin-bottom: 100px;
   }
+
   appearance: none;
   background-color: $theme_color;
   border: none;
@@ -181,8 +186,11 @@ button[type="submit"] {
   margin: 10px 0 50px;
   padding: 12px 10px;
   text-transform: uppercase;
-  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: background-color 0.2s,
+  box-shadow 0.2s,
+  transform 0.2s;
   width: 150px;
+
   &:hover {
     background: lighten($theme_color, 5%);
     box-shadow: 0 2px 0 $white;
@@ -211,6 +219,7 @@ textarea {
   color: #fff;
   padding: 10px;
   transition: background-color 0.2s;
+
   &:focus {
     background-color: rgba(255, 255, 255, 0.2);
   }
@@ -224,6 +233,7 @@ textarea {
   margin-left: 0;
   transition: all 0.3s;
   overflow: hidden;
+
   &.offset {
     width: calc(100% - 120px);
   }
@@ -280,13 +290,16 @@ footer h2 {
 .organization {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
+
   h4,
   .location_duration {
     display: inline;
+
     &.location_duration--block {
       display: block;
     }
   }
+
   &.organization--last {
     border-bottom: none;
     padding-bottom: 0;
@@ -304,7 +317,7 @@ footer h2 {
     transition: all 250ms ease-in-out;
     margin-bottom: 0;
 
-    ~ p {
+    ~p {
       margin-top: 10px;
     }
   }
@@ -335,6 +348,7 @@ footer h2 {
   top: 0px;
   transition: all 0.2s;
   width: 0px;
+
   &.active {
     width: 120px;
   }
@@ -359,6 +373,7 @@ footer h2 {
   top: 10px;
   width: 50px;
   z-index: 2;
+
   &.active {
     right: 120px;
   }
@@ -425,15 +440,19 @@ footer h2 {
   list-style-type: none;
   margin: 0 0 12px;
   font-size: 1.5em;
+
   li {
     margin-bottom: 1.2rem;
+
     @media screen and (min-width: 800px) {
       display: inline;
+
       &::after {
         content: "+";
         opacity: 0.5;
         margin: 0 5px;
       }
+
       &:last-of-type {
         &::after {
           content: "";
@@ -460,6 +479,16 @@ nav ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+dd.list-inline-item {
+  display: block;
+  margin: 16px 0 24px 0;
+
+  @media screen and (min-width: 600px) {
+    display: inline-block;
+    margin: unset;
+  }
 }
 
 nav ul li button,
@@ -489,6 +518,7 @@ nav ul li a:hover {
   transition: opacity 0.5s;
   opacity: 0.2;
   min-width: 50px;
+
   &:hover {
     opacity: 1;
   }
@@ -522,6 +552,7 @@ nav ul li a:hover {
   background-size: 60px 60px;
   float: right;
   opacity: 0.5;
+
   &:hover {
     opacity: 1;
   }
@@ -556,20 +587,24 @@ nav ul li a:hover {
 }
 
 @keyframes bubble-size {
+
   0%,
   75% {
     width: 80px;
     height: 80px;
   }
+
   100% {
     width: 0;
     height: 0;
   }
 }
+
 @keyframes bubble-move {
   0% {
     bottom: -80px;
   }
+
   100% {
     bottom: 200px;
   }
