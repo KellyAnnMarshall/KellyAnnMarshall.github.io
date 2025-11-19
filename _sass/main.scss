@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $background_color: #282828;
 $text_color: #191919;
 $white: #fff;
@@ -124,7 +126,7 @@ a,
     text-decoration: none;
 
     &:hover {
-        color: lighten($theme_color, 50%);
+        color: color.adjust($theme_color, $lightness: 50%);
         cursor: pointer;
         text-decoration: underline;
     }
@@ -192,7 +194,7 @@ button[type="submit"] {
     width: 150px;
 
     &:hover {
-        background: lighten($theme_color, 5%);
+        background: color.adjust($theme_color, $lightness: 5%);
         box-shadow: 0 2px 0 $white;
         transform: translateY(-2px);
     }
@@ -393,7 +395,7 @@ footer h2 {
 }
 
 .switch span {
-    background-color: lighten($background_color, 60%);
+    background-color: color.adjust($background_color, $lightness: 60%);
     display: block;
     height: 3px;
     left: 5px;
@@ -405,7 +407,7 @@ footer h2 {
 
 .switch span::before,
 .switch span::after {
-    background: lighten($background_color, 60%);
+    background: color.adjust($background_color, $lightness: 60%);
     content: "";
     display: block;
     height: 3px;
