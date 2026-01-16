@@ -17,13 +17,18 @@ jobs:
         with:
           ruby-version: '3.1'
 
-      - name: Install Bundler & gems
+      - name: Install gems (if Gemfile) and build Jekyll site
         run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
-
-      - name: Build Jekyll site
-        run: bundle exec jekyll build --destination _site
+          if [ -f Gemfile ]; then
+            echo "Gemfile found — installing via Bundler"
+            gem install bundler
+            bundle install --jobs 4 --retry 3
+            bundle exec jekyll build --destination _site
+          else
+            echo "No Gemfile — installing Jekyll directly"
+            gem install jekyll
+            jekyll build --destination _site
+          fi
 
       - name: Set up Node (for Dart Sass)
         uses: actions/setup-node@v4
