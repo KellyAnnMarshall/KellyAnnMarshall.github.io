@@ -12,19 +12,39 @@
     <main>
       <div class="container">
         {% include portfolio.html %}
+        <section class="about">
+        <h2 id="about_target">About</h2>
+        <ul class="row column_container clearfix list-unstyled">
+          <li class="col-12 col-md-6">
+            <h3 id="web_dev_target">Web Development</h3>
+            <p>I have an MSc in Information Technology from the University of Glasgow. My web development experience includes the use of HTML5, CSS3, LESS, SASS, JavaScript, Angular, Vue, React, WordPress, Joomla, Jekyll, Tailwind, Bootstrap, PHP/MySQL, Python/Django and Node.</p>
+          </li>
+          <li class="col-12 col-md-6">
+            <h3 id="web_des_target">Web Design</h3>
+            <p>My UX/UI web design experience includes the use of HTML5, CSS3, LESS and SASS to produce responsive websites, e-mail campaigns, interactive maps, photo and video galleries and more, as well as wireframing in Balsamiq, Adobe XD and Figma.</p>
+          </li>
+          <li class="col-12 col-md-6">
+            <h3 id="print_target">Print Design</h3>
+            <p>My print design experience includes the design and prepress of printed advertising, package design, catalogs, brochures, annual reports, business proposals, logos and branding and promotional materials.</p>
+          </li>
+          <li class="col-12 col-md-6">
+            <h3 id="photo_target">Photography</h3>
+            <p>I have a BFA in Photography from the Maryland Institute, College of Art. My photography experience includes B&amp;W and colour photography, photochemistry, studio lighting, studio portraiture and high-end digital editing.</p>
+          </li>
+        </ul>
+        </section>
         <section class="details">
-        
           <h2 id="cv_target">CV<a href="{{'/assets/images/KellyAnnMarshallCV.pdf' | relative_url }}" target="_blank" class="icon-link cv">Download
               CV</a></h2>
           <h3>Summary</h3>
-          <p>Experienced and talented web developer who is self-motivated, client-centric, creative, insightful and versatile. Adept at innovating user experience for web applications. Exceptional interpersonal skills and is efficient, organised, resourceful, flexible, reliable and willing to listen and contribute with clients and team members. Available for fully remote full-time permanent positions.</p>
+          <p>Talented and experienced print and web designer/developer who is self-motivated, client-centric, creative, insightful and versatile. Adept at innovating user experience for the web and multimedia applications. Exceptional interpersonal skills and is efficient, organised, resourceful, flexible, reliable and willing to listen and contribute with clients and team members. Seeking both consulting and full-time opportunities with companies that demand high-quality design to further business goals and professional image.</p>
           <div itemscope itemtype="http://schema.org/ItemList">
             <h3 itemprop="name">Skills</h3>
             <ul class="row styled-list">
               <li class="col-12 col-md-6" itemprop="itemListElement">HTML(5) / CSS(3) / SASS</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">JavaScript / TypeScript	</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Angular / Vue	</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Node / Webpack	</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Angular / Vue / React</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Node / Webpack</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Docker / AWS</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Git / Bitbucket</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Jasmine / Karma / Jest</li>
@@ -38,7 +58,8 @@
             </ul>
           </div>
           <h3>Professional Experience</h3>
-          <div class="organization" itemscope itemtype="http://schema.org/Organization">
+          <ul class="list-unstyled p-0 m-0">
+          <li class="organization" itemscope itemtype="http://schema.org/Organization">
             <h4 class="job_title" itemprop="jobTitle">Front-End Developer <span class="location_duration">(Nov 2022 - Oct 2025)</span></h4>
             <p itemprop="name">Beeks Financial Cloud Group Plc, Renfrew, Scotland</p>
             <p>Technologies: Angular, TypeScript, NX, NgRx, RxJS, D3.js, Jest, NgMocks, Jasmine, Storybook, Playwright, Keycloak, Docker, Bitbucket, Jira, Microsoft Copilot, Anthropic Claude</p>
@@ -47,9 +68,9 @@
               <li>Developed chart components displaying server usage analytics with D3.</li>
               <li>Updated legacy code and upgraded front-end code dependencies.</li>
             </ul>
-          </div>
+          </li>
 
-          <div class="organization" itemscope itemtype="http://schema.org/Organization">
+          <li class="organization" itemscope itemtype="http://schema.org/Organization">
             <h4 class="job_title" itemprop="jobTitle">Senior Developer <span class="location_duration">(Aug 2020 - Jun 2022)</span></h4> 
             <p itemprop="name">Idox Group (acquired thinkWhere in Oct 2021), Glasgow, Scotland</p>
             <p>Technologies: Angular, TypeScript, OpenLayers, Bootstrap, Cypress, AWS, pgAdmin, Docker, Terraform, IIS, Figma, AdobeXD, Balsamiq, Git, Jira</p>
@@ -62,8 +83,8 @@
               <li>Upgraded legacy client-side code and dependencies to improve security and accessibility.</li>
             </ul>
        
-          </div>
-          <div class="organization" itemscope itemtype="http://schema.org/Organization">
+          </li>
+          <li class="organization" itemscope itemtype="http://schema.org/Organization">
             <h4 class="job_title" itemprop="jobTitle">UI Developer <span class="location_duration">(Aug 2018 - Feb 2020)</span></h4>
             <p itemprop="name">VisitScotland, Edinburgh, Scotland</p>
             <p>Technologies: HTML5, CSS3, SASS, VueJS, JavaScript / ES6, MapboxGL, Webpack, Gulp,
@@ -78,9 +99,9 @@
               <li>Worked with UX, Design and Software Engineering teams to create complex itinerary CMS templates
                 integrating destination product data and itinerary maps.</li>
             </ul>
-          </div>
+          </li>
 
-          <div class="organization" itemscope itemtype="http://schema.org/Organization">
+          <li class="organization" itemscope itemtype="http://schema.org/Organization">
             <h4 class="job_title" itemprop="jobTitle">Front-End Developer <span class="location_duration">(Aug 2017 - May 2018)</span></h4>
             <p itemprop="name">Peninsula Business Services, Glasgow, Scotland</p>
             <p>Technologies: HTML5, CSS3, LESS, AngularJS, JavaScript / ES6, Node, Gulp, Git, Karma, Jasmine, VSCode, Jenkins, WebAPIs, Microsoft Team Foundation Server</p>
@@ -91,9 +112,9 @@
               <li>Refactored project CSS/LESS directory structure and added automated CSS code linting to the project, making the project files easier to maintain.</li>
               
             </ul>
-          </div>
+          </li>
 
-          <div class="organization" itemscope itemtype="http://schema.org/Organization">
+          <li class="organization" itemscope itemtype="http://schema.org/Organization">
             <h4 class="job_title" itemprop="jobTitle">Front-End Developer <span class="location_duration">(Feb 2014 - May 2017)</span></h4>
             <p itemprop="name">Arnold Clark, Glasgow, Scotland</p>
             <p>Technologies: HTML5, CSS3, SASS, JavaScript, JQuery, Node, Grunt, Gulp, Git, Backbone, Jekyll, Joomla, Jasmine</p>
@@ -106,10 +127,68 @@
                   <li>https://www.acvm.com</li>
                 </ul>
             </ul>
-          </div>
+          </li>
+         <li class="organization organization--last" itemscope itemtype="http://schema.org/Organization">
+             <h4 class="job_title" itemprop="jobTitle">Web Content Officer <span class="location_duration">(Oct 2012 - Nov 2013)</span></h4>
+            <p itemprop="name">The University of Glasgow, Glasgow, Scotland</p>
+                <p class="job_title" itemprop="jobTitle">Web Content Officer</p>
+                <div itemprop="description">
+                  <p>Web design, web development and support for a wide range of academic and services staff.</p>
+                  <p>Programs and languages used: t4 content management system, HTML, CSS, PHP, MySQL, WAMP, jQuery, Javascript, AJAX, Photoshop, Illustrator, InDesign</p>
+                  <h5 class="selected_accomplishments">Selected Accomplishments:</h5>
+                  <ul>
+                    <li>Developed a searchable pop-up video gallery in CSS and jQuery</li>
+                    <li>Developed a reusable magazine and responsive e-mail content templates</li>
+                    <li>Developed a customised PHP/MySQL database and web-based editor to store research and academic unit urls, cross references and associations</li>
+                  </ul>
+                </div>
+              </li>
+              </ul>
+
+               <h3>Previous Experience</h3>
+
+               <ul class="list-unstyled p-0 m-0">
+                <li class="organization  p-0 m-0" itemscope itemtype="http://schema.org/Organization">
+                    <h4 class="job_title" itemprop="jobTitle">Web Developer / Research Assistant <span class="location_duration">(Oct 2011 - Sep 2012)</span></h4>
+                <p itemprop="name">University of Glasgow, Glasgow, Scotland</p>
+              </li>
+              <li class="organization p-0 m-0" itemscope itemtype="http://schema.org/Organization">
+                <h4 class="job_title" itemprop="jobTitle">Print and Web Designer <span class="location_duration">(Feb 2008 - Sep 2010)</span></h4>
+                <p itemprop="name">Admit One, New York, NY</p>
+              </li>
+              
+              <li class="organization p-0 m-0" itemscope itemtype="http://schema.org/Organization">
+                <h4 class="job_title" itemprop="jobTitle">Print and Web Designer <span class="location_duration">(Nov 2002 - Nov 2007)</span></h4>
+                <p itemprop="name">Henry M. Jackson Foundation for the Advancement of Military Medicine, Bethesda, MD</p>
+              </li>
+              
+              <li class="organization p-0 m-0" itemscope itemtype="http://schema.org/Organization">
+                <h4 class="job_title" itemprop="jobTitle">Print and Web Designer <span class="location_duration">(Feb 1999 - Dec 2000)</span></h4>
+                <p itemprop="name">LADO International College, Washington, DC</p>
+              </li>
+              
+              <li class="organization p-0 m-0" itemscope itemtype="http://schema.org/Organization">
+                <h4 class="job_title" itemprop="jobTitle">Advertising Designer <span class="location_duration">(Jun 1996 - Jan 1999)</span></h4>
+                <p itemprop="name">Channing L. Bete Company, South Deerfield, MA</p>
+              </li>
+              
+              <li class="organization p-0 m-0" itemscope itemtype="http://schema.org/Organization">
+                <h4 class="job_title" itemprop="jobTitle">Freelance Designer <span class="location_duration">(May 1994 - May 1996)</span></h4>
+                <p itemprop="name">Freelance Designer, New York, NY</p>
+              </li>
+              
+              <li class="organization p-0 m-0" itemscope itemtype="http://schema.org/Organization">
+                <h4 class="job_title" itemprop="jobTitle">Digital Retoucher <span class="location_duration">(Jun 1993 - May 1994)</span></h4>
+                <p itemprop="name">Digital Stock Connection, Rockville, MD</p>
+              </li>
+              <li class="organization p-0 m-0 organization--last" itemscope itemtype="http://schema.org/Organization">
+                <h4 class="job_title" itemprop="jobTitle">Studio Portrait Photographer <span class="location_duration">(Jun 1992 - Mar 1993)</span></h4>
+                <p itemprop="name">Elegant Images, Towson, MD</p>
+              </li>
+               </ul>
 
           <h3>Education</h3>
-
+          <ul class="list-unstyled p-0 m-0">
           <div class="organization" itemscope itemtype="http://schema.org/EducationalOrganization">
             <h4 class="job_title">MSc in Information Technology <span class="location_duration">(Sep 2010 - Sep 2011)</span></h4>
             <p itemprop="name">University of Glasgow</p>
@@ -135,7 +214,7 @@
             <p>Areas of emphasis: Commercial B&amp;W and colour photography and development, studio lighting,
               photojournalism, medium and large format photography</p>
           </div>
-   
+          </ul>
       </div>
       </section>
     </main>
