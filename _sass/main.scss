@@ -123,8 +123,7 @@ button {
     font-size: 1rem;
 }
 
-a,
-.scroll-nav button {
+a {
     transition: color 0.5s;
     color: $theme_color;
     font-size: 1em;
@@ -138,11 +137,12 @@ a,
     }
 }
 
-.scroll-nav {
-    .scroll {
-        padding: 0px;
-        font-family: "Open Sans" sans-serif;
-    }
+.what-i-do{
+    transition: color 0.5s;
+    color: $theme_color;
+    font-size: 1em;
+    font-weight: normal;
+    text-decoration: none;
 }
 
 ul {
@@ -453,9 +453,52 @@ footer h2 {
     transition-delay: 0, 0.3s;
 }
 
-.scroll-nav {
+.qualifications,
+.contact{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    li:not(:last-of-type) {
+        &::after {
+            content: "•";
+            opacity: 0.5;
+            padding: 0 5px;
+        }
+    }
+
+    &:last-of-type {
+        margin: 0 0 12px;
+    }
+
+}
+
+.technologies-list {
+    display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     margin: 0 0 12px;
+    li:not(:last-of-type) {
+        &::after {
+            content: ",";
+            margin-right: 5px;
+        }
+    }
+
+    &:last-of-type {
+        margin: 0 0 12px;
+    }
+
+}
+
+.technologies-header {
+    color: white;
+    display: flex;
+}
+
+.what-i-do {
+    list-style-type: none;
+    margin: 24px 0 ;
     font-size: 1.5em;
 
     li {
