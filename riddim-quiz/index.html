@@ -27,6 +27,11 @@
         <p class="intro-copy">Listen closely. Which classic rhythm is playing?</p>
       </section>
 
+      <div class="mode-switch" role="group" aria-label="Quiz mode">
+        <button class="mode-button is-active" id="hard-mode-button" type="button" aria-pressed="true">Hard</button>
+        <button class="mode-button" id="easy-mode-button" type="button" aria-pressed="false">Easy</button>
+      </div>
+
       <section class="quiz" aria-label="Riddim quiz">
         <div class="list-panel">
           <div class="panel-heading">
@@ -61,10 +66,36 @@
         </aside>
       </section>
 
+      <section class="quiz easy-quiz" id="easy-quiz" aria-label="Easy riddim quiz" hidden>
+        <div class="list-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Choose the matching sound</p>
+              <h2>Which number is it?</h2>
+            </div>
+          </div>
+          <div class="easy-choice-list" id="easy-choice-list" role="group" aria-label="Numbered sound choices"></div>
+          <p class="list-footnote">Preview any sound, then choose the number that matches the song title.</p>
+        </div>
+
+        <aside class="listen-panel easy-target-panel" aria-labelledby="easy-song-title">
+          <div class="record-art" aria-hidden="true">
+            <span class="record-label"><span>RS</span></span>
+            <span class="record-groove groove-one"></span>
+            <span class="record-groove groove-two"></span>
+            <span class="record-groove groove-three"></span>
+          </div>
+          <p class="section-kicker">Find this song</p>
+          <h2 id="easy-song-title">Ready when you are.</h2>
+          <p class="listen-status" id="easy-listen-status" role="status" aria-live="polite">Choose a sound to preview it.</p>
+          <div class="feedback" id="easy-feedback" role="status" aria-live="assertive" hidden></div>
+        </aside>
+      </section>
+
       <footer class="page-footer">
         <span class="footer-stripe" aria-hidden="true"></span>
         <p>One loop at a time. No clock, no score.</p>
-        <span class="footer-detail">20 riddims <span aria-hidden="true">/</span> 3 correct to retire</span>
+        <span class="footer-detail">Hard mode <span aria-hidden="true">/</span> 3 correct to retire</span>
       </footer>
     </main>
   </body>

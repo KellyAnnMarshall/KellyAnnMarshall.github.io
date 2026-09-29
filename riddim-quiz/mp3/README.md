@@ -27,7 +27,7 @@ Add one short `.mp3` loop for each riddim in this directory. The filename must m
 | Run Run                    | `run-run.mp3`                  |
 | Satta Massagana            | `satta-massagana.mp3`          |
 | Shank I Sheck.             | `shank-i-sheck.mp3`.           |
-| Stalag (Stalag 17)         | `stalag-stalag-17.mp3`         |
+| Stalag (Stalag 17)         | `stalag.mp3`         |
 | Undying Love.              | `undying-love.mp3`             |
 
 To add another riddim, add an `{ id, name }` entry in alphabetical order to the `riddims` array in `app.js`, then add the matching `.mp3` file here. Progress is saved in this browser's local storage. A riddim leaves future questions after three correct guesses in a row, or can be excluded with the “I know this one” button. Use “Reset mastered riddims” to restore excluded riddims.
