@@ -1,6 +1,6 @@
 # MP3 loops
 
-Add one short `.mp3` loop for each riddim in this directory. The filename must match the riddim ID below. The app plays each clip on repeat until the user submits a guess or excludes the riddim. No audio files are included.
+Add one short `.mp3` clip for each riddim in this directory. The filename must match the riddim ID below. Mode 1 plays a random track once and loads another track when its name is revealed. Mode 2 plays the selected loop on repeat until the user submits a guess or excludes the riddim. Mode 3 previews tracks as the user identifies a numbered sound. No audio files are included.
 
 | Riddim                     | Filename                       |
 | -------------------------- | ------------------------------ |

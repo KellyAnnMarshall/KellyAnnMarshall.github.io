@@ -1,101 +1,202 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#173b2b">
-    <meta name="description" content="Listen to classic reggae and rocksteady riddims and see how many you can recognize.">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#173b2b" />
+    <meta
+      name="description"
+      content="Listen to classic reggae and rocksteady riddims and see how many you can recognize."
+    />
     <title>Riddim School | Reggae listening quiz</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
     <header class="masthead">
-      <div class="masthead-inner">
-        <a class="wordmark" href="./" aria-label="Riddim School home">
-          <span class="wordmark-mark" aria-hidden="true">R</span>
-          <span>Riddim School</span>
-        </a>
-        <span class="masthead-note">A listening quiz in reggae history</span>
+      <div class="page-shell intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> Rocksteady &amp; reggae</p>
+        <h1 id="page-title">Know your <em>riddim.</em></h1>
+        <p class="intro-copy">Listen closely. Which bassline is playing?</p>
       </div>
     </header>
 
     <main class="page-shell">
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow"><span></span> Rocksteady &amp; reggae</p>
-        <h1 id="page-title">Know your <em>riddim.</em></h1>
-        <p class="intro-copy">Listen closely. Which classic rhythm is playing?</p>
-      </section>
-
       <div class="mode-switch" role="group" aria-label="Quiz mode">
-        <button class="mode-button is-active" id="hard-mode-button" type="button" aria-pressed="true">Hard</button>
-        <button class="mode-button" id="easy-mode-button" type="button" aria-pressed="false">Easy</button>
+        <button
+          class="mode-button is-active"
+          id="mode-1-button"
+          type="button"
+          aria-pressed="true"
+        >
+          Mode 1
+        </button>
+        <button
+          class="mode-button"
+          id="mode-2-button"
+          type="button"
+          aria-pressed="false"
+        >
+          Mode 2
+        </button>
+        <button
+          class="mode-button"
+          id="mode-3-button"
+          type="button"
+          aria-pressed="false"
+        >
+          Mode 3
+        </button>
       </div>
 
-      <section class="quiz" aria-label="Riddim quiz">
+      <section
+        class="quiz mode-one-quiz"
+        id="mode-1-quiz"
+        aria-label="Mode 1: listen and reveal"
+      >
+        <aside class="listen-panel" aria-labelledby="mode-1-title">
+          <p class="section-kicker">Listen &amp; learn</p>
+          <h2 id="mode-1-title">A new loop awaits.</h2>
+          <p
+            class="listen-status"
+            id="mode-1-status"
+            role="status"
+            aria-live="polite"
+          >
+            Press play to hear a random riddim.
+          </p>
+          <div class="mode-one-controls">
+            <button class="play-button" id="mode-1-play-button" type="button">
+              <span class="play-icon" aria-hidden="true">&#9654;</span>
+              <span>Play random bassline</span>
+            </button>
+            <button class="next-button" id="mode-1-reveal-button" type="button">
+              Reveal Riddim Name
+            </button>
+          </div>
+        </aside>
+      </section>
+
+      <section
+        class="quiz"
+        id="mode-2-quiz"
+        aria-label="Mode 2: riddim quiz"
+        hidden
+      >
         <div class="list-panel">
           <div class="panel-heading">
             <div>
               <p class="section-kicker">The selection</p>
-              <h2>What riddim is this?</h2>
+              <h2>What riddim bassline is this?</h2>
             </div>
-            <span class="remaining-count" id="remaining-count" aria-live="polite"></span>
+            <span
+              class="remaining-count"
+              id="remaining-count"
+              aria-live="polite"
+            ></span>
           </div>
-          <div class="choice-list" id="choice-list" role="group" aria-label="Riddim choices"></div>
-          <p class="list-footnote" id="list-footnote">Riddims you know by heart leave the list after three correct guesses in a row.</p>
+          <div
+            class="choice-list"
+            id="choice-list"
+            role="group"
+            aria-label="Riddim choices"
+          ></div>
+          <p class="list-footnote" id="list-footnote">
+            Riddims you know by heart leave the list after three correct guesses
+            in a row.
+          </p>
         </div>
 
         <aside class="listen-panel" aria-labelledby="listen-title">
-          <div class="record-art" aria-hidden="true">
-            <span class="record-label"><span>RS</span></span>
-            <span class="record-groove groove-one"></span>
-            <span class="record-groove groove-two"></span>
-            <span class="record-groove groove-three"></span>
-          </div>
           <p class="section-kicker">Listen &amp; identify</p>
           <h2 id="listen-title">Ready when you are.</h2>
-          <p class="listen-status" id="listen-status" role="status" aria-live="polite">A random loop is waiting. Press play to listen.</p>
+          <p
+            class="listen-status"
+            id="listen-status"
+            role="status"
+            aria-live="polite"
+          >
+            A random loop is waiting. Press play to listen.
+          </p>
           <button class="play-button" id="play-button" type="button">
             <span class="play-icon" aria-hidden="true">&#9654;</span>
             <span>Play loop</span>
           </button>
-          <button class="known-button" id="known-button" type="button">I know this one - exclude from quiz</button>
-          <div class="feedback" id="feedback" role="status" aria-live="assertive" hidden></div>
-          <button class="next-button" id="next-button" type="button" hidden>Next riddim <span aria-hidden="true">&#8594;</span></button>
-          <button class="reset-button" id="reset-button" type="button" hidden>Reset mastered riddims</button>
+          <button class="known-button" id="known-button" type="button">
+            I know this one - exclude from quiz
+          </button>
+          <div
+            class="feedback"
+            id="feedback"
+            role="status"
+            aria-live="assertive"
+            hidden
+          ></div>
+          <button class="next-button" id="next-button" type="button" hidden>
+            Next riddim <span aria-hidden="true">&#8594;</span>
+          </button>
+          <button class="reset-button" id="reset-button" type="button" hidden>
+            Reset mastered riddims
+          </button>
         </aside>
       </section>
 
-      <section class="quiz easy-quiz" id="easy-quiz" aria-label="Easy riddim quiz" hidden>
+      <section
+        class="quiz easy-quiz"
+        id="mode-3-quiz"
+        aria-label="Mode 3: numbered sound quiz"
+        hidden
+      >
         <div class="list-panel">
           <div class="panel-heading">
             <div>
-              <p class="section-kicker">Choose the matching sound</p>
+              <p class="section-kicker">Choose the matching bassline</p>
               <h2>Which number is it?</h2>
             </div>
           </div>
-          <div class="easy-choice-list" id="easy-choice-list" role="group" aria-label="Numbered sound choices"></div>
-          <p class="list-footnote">Preview any sound, then choose the number that matches the song title.</p>
+          <div
+            class="easy-choice-list"
+            id="easy-choice-list"
+            role="group"
+            aria-label="Numbered sound choices"
+          ></div>
+          <p class="list-footnote">
+            Preview any sound, then choose the number that matches the song
+            title.
+          </p>
         </div>
 
-        <aside class="listen-panel easy-target-panel" aria-labelledby="easy-song-title">
-          <div class="record-art" aria-hidden="true">
-            <span class="record-label"><span>RS</span></span>
-            <span class="record-groove groove-one"></span>
-            <span class="record-groove groove-two"></span>
-            <span class="record-groove groove-three"></span>
-          </div>
+        <aside
+          class="listen-panel easy-target-panel"
+          aria-labelledby="easy-song-title"
+        >
           <p class="section-kicker">Find this song</p>
           <h2 id="easy-song-title">Ready when you are.</h2>
-          <p class="listen-status" id="easy-listen-status" role="status" aria-live="polite">Choose a sound to preview it.</p>
-          <div class="feedback" id="easy-feedback" role="status" aria-live="assertive" hidden></div>
+          <p
+            class="listen-status"
+            id="easy-listen-status"
+            role="status"
+            aria-live="polite"
+          >
+            Choose a sound to preview it.
+          </p>
+          <div
+            class="feedback"
+            id="easy-feedback"
+            role="status"
+            aria-live="assertive"
+            hidden
+          ></div>
         </aside>
       </section>
 
       <footer class="page-footer">
         <span class="footer-stripe" aria-hidden="true"></span>
         <p>One loop at a time. No clock, no score.</p>
-        <span class="footer-detail">Hard mode <span aria-hidden="true">/</span> 3 correct to retire</span>
+        <span class="footer-detail">
+          Listen <span aria-hidden="true">/</span> reveal
+          <span aria-hidden="true">/</span> recognize
+        </span>
       </footer>
     </main>
   </body>
