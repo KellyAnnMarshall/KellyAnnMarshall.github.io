@@ -47,6 +47,14 @@
         >
           Mode 3
         </button>
+        <button
+          class="mode-button"
+          id="mode-4-button"
+          type="button"
+          aria-pressed="false"
+        >
+          Mode 4
+        </button>
       </div>
 
       <section
@@ -78,9 +86,34 @@
       </section>
 
       <section
-        class="quiz"
+        class="quiz mode-two-quiz"
         id="mode-2-quiz"
-        aria-label="Mode 2: riddim quiz"
+        aria-label="Mode 2: riddim name challenge"
+        hidden
+      >
+        <aside class="listen-panel" aria-labelledby="mode-2-title">
+          <p class="section-kicker">Name the riddim</p>
+          <h2 id="mode-2-title">A new riddim awaits.</h2>
+          <p
+            class="listen-status"
+            id="mode-2-status"
+            role="status"
+            aria-live="polite"
+          >
+            Think about how the bassline goes and then select 'Play the
+            bassline' to see if you were close.
+          </p>
+          <button class="play-button" id="mode-2-play-button" type="button">
+            <span class="play-icon" aria-hidden="true">&#9654;</span>
+            <span>Play the bassline</span>
+          </button>
+        </aside>
+      </section>
+
+      <section
+        class="quiz"
+        id="mode-3-quiz"
+        aria-label="Mode 3: riddim quiz"
         hidden
       >
         <div class="list-panel">
@@ -143,8 +176,8 @@
 
       <section
         class="quiz easy-quiz"
-        id="mode-3-quiz"
-        aria-label="Mode 3: numbered sound quiz"
+        id="mode-4-quiz"
+        aria-label="Mode 4: numbered sound quiz"
         hidden
       >
         <div class="list-panel">

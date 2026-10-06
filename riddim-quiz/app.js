@@ -23,8 +23,9 @@ const knownButton = document.querySelector("#known-button");
 const feedback = document.querySelector("#feedback");
 const nextButton = document.querySelector("#next-button");
 const resetButton = document.querySelector("#reset-button");
-const hardQuiz = document.querySelector("#mode-2-quiz");
-const easyQuiz = document.querySelector("#mode-3-quiz");
+const modeTwoQuiz = document.querySelector("#mode-2-quiz");
+const hardQuiz = document.querySelector("#mode-3-quiz");
+const easyQuiz = document.querySelector("#mode-4-quiz");
 const easyChoiceList = document.querySelector("#easy-choice-list");
 const easySongTitle = document.querySelector("#easy-song-title");
 const easyListenStatus = document.querySelector("#easy-listen-status");
@@ -34,8 +35,12 @@ const modeOneTitle = document.querySelector("#mode-1-title");
 const modeOneStatus = document.querySelector("#mode-1-status");
 const modeOnePlayButton = document.querySelector("#mode-1-play-button");
 const modeOneRevealButton = document.querySelector("#mode-1-reveal-button");
+const modeTwoTitle = document.querySelector("#mode-2-title");
+const modeTwoStatus = document.querySelector("#mode-2-status");
+const modeTwoPlayButton = document.querySelector("#mode-2-play-button");
 const modeTwoButton = document.querySelector("#mode-2-button");
 const modeThreeButton = document.querySelector("#mode-3-button");
+const modeFourButton = document.querySelector("#mode-4-button");
 const modeOneButton = document.querySelector("#mode-1-button");
 const audio = new Audio();
 audio.preload = "none";
@@ -50,6 +55,8 @@ let previousEasyTargetId = null;
 let activeEasyChoice = null;
 let modeOneRiddim = null;
 let previousModeOneRiddimId = null;
+let modeTwoRiddim = null;
+let previousModeTwoRiddimId = null;
 let playbackGeneration = 0;
 
 function emptyProgress() {
@@ -232,7 +239,6 @@ function loadModeOneTrack() {
 async function playModeOneTrack() {
   if (!modeOneRiddim) return;
   stopPlayback();
-  audio.loop = false;
   audio.src = `mp3/${modeOneRiddim.id}.mp3`;
   modeOneTitle.textContent = "A new loop awaits.";
   modeOnePlayButton.disabled = true;
@@ -264,6 +270,55 @@ function revealModeOneRiddim() {
   loadModeOneTrack();
   modeOneStatus.textContent =
     "Next track loaded. Press play when you’re ready.";
+}
+
+function loadModeTwoRiddim() {
+  const possibleTracks = riddims.filter(
+    ({ id }) => id !== previousModeTwoRiddimId,
+  );
+  modeTwoRiddim = randomItem(possibleTracks.length ? possibleTracks : riddims);
+  previousModeTwoRiddimId = modeTwoRiddim.id;
+  modeTwoTitle.textContent = modeTwoRiddim.name;
+  modeTwoStatus.textContent =
+    "Think about how the bassline goes and then select 'Play the bassline' to see if you were close.";
+  modeTwoPlayButton.disabled = false;
+  modeTwoPlayButton.querySelector("span:last-child").textContent =
+    "Play the bassline";
+}
+
+async function playModeTwoTrack() {
+  if (!modeTwoRiddim) return;
+
+  const currentLabel =
+    modeTwoPlayButton.querySelector("span:last-child").textContent;
+  if (currentLabel === "Try another riddim") {
+    stopPlayback();
+    loadModeTwoRiddim();
+    return;
+  }
+
+  stopPlayback();
+  audio.src = `mp3/${modeTwoRiddim.id}.mp3`;
+  modeTwoPlayButton.disabled = true;
+  modeTwoStatus.textContent = "Loading bassline…";
+
+  try {
+    audio.currentTime = 0;
+    await audio.play();
+    modeTwoStatus.textContent =
+      "Think about how the bassline goes and then select 'Play the bassline' to see if you were close.";
+    modeTwoPlayButton.querySelector("span:last-child").textContent =
+      "Try another riddim";
+  } catch (error) {
+    modeTwoStatus.textContent =
+      error.name === "NotAllowedError"
+        ? "Press play to listen. Your browser requires a tap before audio can start."
+        : `Could not play mp3/${modeTwoRiddim.id}.mp3.`;
+    modeTwoPlayButton.querySelector("span:last-child").textContent =
+      "Play the bassline";
+  } finally {
+    modeTwoPlayButton.disabled = false;
+  }
 }
 
 function shuffled(items) {
@@ -327,7 +382,6 @@ async function playEasyChoice(riddim, button) {
   stopPlayback();
   const playGeneration = playbackGeneration;
   activeEasyChoice = button;
-  audio.loop = false;
   audio.src = `mp3/${riddim.id}.mp3`;
   button.disabled = true;
   button.querySelector("span:last-child").textContent = "Playing";
@@ -369,24 +423,27 @@ function setMode(mode) {
   const isModeOne = mode === "mode1";
   const isModeTwo = mode === "mode2";
   const isModeThree = mode === "mode3";
+  const isModeFour = mode === "mode4";
   modeOneQuiz.hidden = !isModeOne;
-  hardQuiz.hidden = !isModeTwo;
-  easyQuiz.hidden = !isModeThree;
+  modeTwoQuiz.hidden = !isModeTwo;
+  hardQuiz.hidden = !isModeThree;
+  easyQuiz.hidden = !isModeFour;
   for (const [button, isActive] of [
     [modeOneButton, isModeOne],
     [modeTwoButton, isModeTwo],
     [modeThreeButton, isModeThree],
+    [modeFourButton, isModeFour],
   ]) {
     button.setAttribute("aria-pressed", String(isActive));
     button.classList.toggle("is-active", isActive);
   }
-  audio.loop = isModeTwo;
-
-  if (isModeTwo) {
-    if (currentRiddim && !answered) {
-      listenStatus.textContent = "Playback paused. Press play to continue.";
-    }
-  } else if (isModeThree && !easyTarget) {
+  if (isModeTwo && !modeTwoRiddim) {
+    loadModeTwoRiddim();
+  }
+  if (isModeThree && currentRiddim && !answered) {
+    listenStatus.textContent = "Playback paused. Press play to continue.";
+  }
+  if (isModeFour && !easyTarget) {
     startEasyRound();
   }
 }
@@ -394,11 +451,13 @@ function setMode(mode) {
 modeOneButton.addEventListener("click", () => setMode("mode1"));
 modeTwoButton.addEventListener("click", () => setMode("mode2"));
 modeThreeButton.addEventListener("click", () => setMode("mode3"));
+modeFourButton.addEventListener("click", () => setMode("mode4"));
 modeOnePlayButton.addEventListener("click", playModeOneTrack);
 modeOneRevealButton.addEventListener("click", revealModeOneRiddim);
+modeTwoPlayButton.addEventListener("click", playModeTwoTrack);
 
 audio.addEventListener("ended", () => {
-  if (activeMode === "mode3" && activeEasyChoice) {
+  if (activeMode === "mode4" && activeEasyChoice) {
     activeEasyChoice.querySelector("span:last-child").textContent = "Preview";
     activeEasyChoice = null;
     easyListenStatus.textContent =
@@ -437,12 +496,15 @@ resetButton.addEventListener("click", () => {
 audio.addEventListener("error", () => {
   if (activeMode === "mode1" && modeOneRiddim) {
     modeOneStatus.textContent = `Could not play mp3/${modeOneRiddim.id}.mp3.`;
-  } else if (activeMode === "mode2" && currentRiddim && !answered) {
+  } else if (activeMode === "mode2" && modeTwoRiddim) {
+    modeTwoStatus.textContent = `Could not play mp3/${modeTwoRiddim.id}.mp3.`;
+  } else if (activeMode === "mode3" && currentRiddim && !answered) {
     listenStatus.textContent = `Add mp3/${currentRiddim.id}.mp3 to the mp3 folder to play this riddim.`;
-  } else if (activeMode === "mode3" && easyTarget) {
+  } else if (activeMode === "mode4" && easyTarget) {
     easyListenStatus.textContent = "This sound file could not be played.";
   }
 });
 
 chooseRiddim();
 loadModeOneTrack();
+loadModeTwoRiddim();
