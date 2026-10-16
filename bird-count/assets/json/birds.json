@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Blackbird",
+    "shortname": "blackbird",
+    "count": 0
+  },
+  {
+    "id": 2,
+    "name": "Blue tit",
+    "shortname": "blue-tit",
+    "count": 0
+  },
+  {
+    "id": 3,
+    "name": "Chaffinch",
+    "shortname": "chaffinch",
+    "count": 0
+  },
+  {
+    "id": 4,
+    "name": "Coal tit",
+    "shortname": "coal-tit",
+    "count": 0
+  },
+  {
+    "id": 5,
+    "name": "Collared dove",
+    "shortname": "collared-dove",
+    "count": 0
+  },
+  {
+    "id": 6,
+    "name": "Goldfinch",
+    "shortname": "goldfinch",
+    "count": 0
+  },
+  {
+    "id": 7,
+    "name": "Great tit",
+    "shortname": "great-tit",
+    "count": 0
+  },
+  {
+    "id": 8,
+    "name": "Greenfinch",
+    "shortname": "greenfinch",
+    "count": 0
+  },
+  {
+    "id": 9,
+    "name": "House sparrow",
+    "shortname": "sparrow",
+    "count": 0
+  },
+  {
+    "id": 10,
+    "name": "Lesser-spotted woodpecker",
+    "shortname": "lesser-spotted-woodpecker",
+    "count": 0
+  },
+  {
+    "id": 11,
+    "name": "Long-tailed tit",
+    "shortname": "long-tailed-tit",
+    "count": 0
+  },
+  {
+    "id": 12,
+    "name": "Magpie",
+    "shortname": "magpie",
+    "count": 0
+  },
+  {
+    "id": 13,
+    "name": "Robin",
+    "shortname": "robin",
+    "count": 0
+  },
+  {
+    "id": 14,
+    "name": "Siskin",
+    "shortname": "siskin",
+    "count": 0
+  },
+  {
+    "id": 15,
+    "name": "Starling",
+    "shortname": "starling",
+    "count": 0
+  }
+]
