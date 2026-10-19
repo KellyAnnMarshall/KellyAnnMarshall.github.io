@@ -4,17 +4,19 @@
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card bg-dark text-white">
         <a
-          href="assets/designwork/web/AdmitOneV1.jpg"
+          href="{{ 'assets/designwork/web/AdmitOneV1.jpg' | relative_url }}"
           data-fancybox="web"
           data-caption="Admit One - website prototype built with HTML and CSS"
         >
           <img
             class="card-img-top"
             src="{{'assets/images/AdmitOne_thumb.jpg' | relative_url }}"
+            alt="Admit One website prototype"
           />
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="assets/designwork/web/maps-for-europe.png"
           data-fancybox="web"
           data-caption="Open Maps for Europe - Design and Frontend Development for a European Union funded geospatial and land information website"
@@ -22,6 +24,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="assets/designwork/web/DestinationsMap.jpg"
           data-fancybox="web"
           data-caption="VisitScotland - Design and Frontend Development for destination map prototype built with MapboxGL, VueJS and BloomreachCMS"
@@ -29,6 +32,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="assets/designwork/web/acvm.png"
           data-fancybox="web"
           data-caption="www.acvm.com -  Frontend development for static, responsive website built with Jekyll"
@@ -36,6 +40,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="assets/designwork/web/acvm-nav.gif"
           data-fancybox="web"
           data-caption="www.acvm.com -  off-canvas mobile navigation menu"
@@ -43,6 +48,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="assets/designwork/web/acvm-news.png"
           data-fancybox="web"
           data-caption="www.acvm.com/news - Frontend development of news feed with infinite scroll and search filtering"
@@ -50,6 +56,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="assets/designwork/web/arnoldclarkrental.png"
           data-fancybox="web"
           data-caption="www.arnoldclarkrental.com - Frontend development for responsive car hire website"
@@ -57,6 +64,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="assets/designwork/web/autocentre.png"
           data-fancybox="web"
           data-caption="www.autocentre.acvm.com - Frontend development for responsive car leasing website"
@@ -78,10 +86,12 @@
           <img
             class="card-img-top"
             src="{{'assets/images/HIVClinicalManagement_thumb.jpg' | relative_url }}"
+            alt="HIV Clinical Research Management Support proposal cover"
           />
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/print/HJFAR2004.png' | relative_url }}"
           data-fancybox="print"
           data-caption="Henry M. Jackson Foundation - Annual Report"
@@ -89,6 +99,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/print/HJFAR2006.png' | relative_url }}"
           data-fancybox="print"
           data-caption="Henry M. Jackson Foundation - Annual Report"
@@ -96,6 +107,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/print/HJFBooth.jpg' | relative_url }}"
           data-fancybox="print"
           data-caption="Henry M. Jackson Foundation - Trade Show Booth"
@@ -103,6 +115,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/print/NATO.png' | relative_url }}"
           data-fancybox="print"
           data-caption="Henry M. Jackson Foundation - NATO Influenza Conference Poster"
@@ -110,6 +123,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/print/NMRC.png' | relative_url }}"
           data-fancybox="print"
           data-caption="Henry M. Jackson Foundation - Naval Medical Research Center Brochure"
@@ -131,10 +145,12 @@
           <img
             class="card-img-top"
             src="{{'assets/images/pave_thumb.jpg' | relative_url }}"
+            alt="PAVE logo"
           />
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/logos/360FinancialServices.jpg' | relative_url }}"
           data-fancybox="logos"
           data-caption="Cueto &amp; Reed, Inc. - 360 Financial Services - Adobe Illustrator"
@@ -142,6 +158,7 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/logos/JackAlexander.png' | relative_url }}"
           data-fancybox="logos"
           data-caption="Cueto &amp; Reed, Inc. - Jack Alexander Construction Logo - Adobe Illustrator"
@@ -149,13 +166,15 @@
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/logos/USMCI-BSN.png' | relative_url }}"
           data-fancybox="logos"
-          data-caption="Henry M. Jackson Foundation - USMCI - Biospecimen Network Logo - Adobe Illustrator""
+          data-caption="Henry M. Jackson Foundation - USMCI - Biospecimen Network Logo - Adobe Illustrator"
         >
         </a>
         <a
           tabindex="-1"
+          aria-hidden="true"
           href="{{'assets/designwork/logos/Lighthammer.png' | relative_url }}"
           data-fancybox="logos"
           data-caption="Cueto &amp; Reed, Inc. - LightHammer Logo - Adobe Illustrator"
@@ -175,13 +194,13 @@
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card bg-dark text-white">
         <img
-          src="assets/designwork/web/map-challenge.png"
+          src="{{ 'assets/designwork/web/map-challenge.png' | relative_url }}"
           alt="Map Challenge"
           class="card-img-top"
         />
         <div class="card-body">
           <h3 class="card-title h4">
-            <a href="/map-challenge" class="stretched-link" target="_blank"
+            <a href="{{ '/map-challenge/' | relative_url }}" class="stretched-link" target="_blank" rel="noopener noreferrer"
               >Map Challenge</a
             >
           </h3>
@@ -192,16 +211,17 @@
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card bg-dark text-white">
         <img
-          src="assets/designwork/web/covid-data-visualisation.png"
+          src="{{ 'assets/designwork/web/covid-data-visualisation.png' | relative_url }}"
           alt="Covid Data Visualisation"
           class="card-img-top"
         />
         <div class="card-body">
           <h3 class="card-title h4">
             <a
-              href="/covid-visualisation"
+              href="{{ '/covid-visualisation/' | relative_url }}"
               class="stretched-link"
               target="_blank"
+              rel="noopener noreferrer"
               >Covid Data Visualisation</a
             >
           </h3>

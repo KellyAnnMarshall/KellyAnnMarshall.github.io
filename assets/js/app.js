@@ -1,14 +1,16 @@
 var scrollTriggers = document.querySelectorAll('.scroll');
+var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var scrollBehavior = reducedMotion ? "auto" : "smooth";
 
 [].forEach.call(scrollTriggers, (trigger) => {
     trigger.addEventListener('click', (e) => {
         var target = document.getElementById(e.currentTarget.dataset.hook + '_target')
-        target.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+        target.scrollIntoView({ behavior: scrollBehavior, block: "start", inline: "nearest" })
     })
 })
 
 document.querySelector('[data-hook="contact"]').addEventListener('click', (e) => {
-    document.querySelector('.footer').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+    document.querySelector('.footer').scrollIntoView({ behavior: scrollBehavior, block: "start", inline: "nearest" })
     setTimeout(() => {
         document.querySelector('input[name="name"]').focus();
     }, 2000)
@@ -18,10 +20,10 @@ document.querySelector('[data-hook="contact"]').addEventListener('click', (e) =>
 var contactFormMarkup = `
 <form method="POST" action="https://formspree.io/kelly_ann_marshall@yahoo.com">
 <input type="hidden" name="_subject" value="Your enquiry to Kelly Ann Marshall" />
-<label for="name">Name* <span class="required-flag">This field is required</span><input autocomplete="name" type="text" name="name" required></label>
-<label for="_replyto">Email* <span class="required-flag">This field is required</span><input autocomplete="email" type="email" name="_replyto" required></label>
-<label for="phone">Phone <input autocomplete="tel-national" type="tel" name="phone"></label>
-<label for="message">Message* <span class="required-flag">This field is required</span><textarea name="message" required></textarea></label>
+<label for="name">Name* <span class="required-flag">This field is required</span><input id="name" autocomplete="name" type="text" name="name" required></label>
+<label for="_replyto">Email* <span class="required-flag">This field is required</span><input id="_replyto" autocomplete="email" type="email" name="_replyto" required></label>
+<label for="phone">Phone <input id="phone" autocomplete="tel-national" type="tel" name="phone"></label>
+<label for="message">Message* <span class="required-flag">This field is required</span><textarea id="message" name="message" required></textarea></label>
 <input type="hidden" name="_next" value="https://kellyannmarshall.github.io" />
 <input type="text" name="_gotcha" style="display:none" autocomplete="nope" />
 <button type="submit">Send</button>
@@ -29,10 +31,25 @@ var contactFormMarkup = `
 
 document.querySelector('.form_container').innerHTML = contactFormMarkup;
 
-document.getElementById("switch").addEventListener('click', (e) => {
-    var page_container = document.querySelector('.page_wrapper');
-    var off_canvas_navigation = document.querySelector('.off_canvas_navigation');
-    (e.currentTarget.classList.contains('active') === true) ? e.currentTarget.classList.remove('active') : e.currentTarget.classList.add('active');
-    (page_container.classList.contains("offset") === true) ? page_container.classList.remove('offset') : page_container.classList.add('offset');
-    (off_canvas_navigation.classList.contains("active") === true) ? off_canvas_navigation.classList.remove('active') : off_canvas_navigation.classList.add('active');
+var menuToggle = document.getElementById("switch");
+var navigation = document.querySelector('.off_canvas_navigation');
+
+function setNavigationOpen(isOpen) {
+    menuToggle.classList.toggle('active', isOpen);
+    document.querySelector('.page_wrapper').classList.toggle('offset', isOpen);
+    navigation.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    navigation.setAttribute('aria-hidden', String(!isOpen));
+    navigation.toggleAttribute('inert', !isOpen);
+}
+
+menuToggle.addEventListener('click', () => {
+    setNavigationOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+})
+
+navigation.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        setNavigationOpen(false);
+        menuToggle.focus();
+    }
 })

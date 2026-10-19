@@ -1,8 +1,25 @@
+@use "sass:color";
+
 $background_color: #282828;
 $text_color: #191919;
 $white: #fff;
 $tertiary_color: #222;
-$theme_color: #448f87;
+$theme_color: #72c6ba;
+
+.skip-link {
+    background-color: $background_color;
+    color: $white;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 1rem;
+    transform: translateY(-200%);
+    z-index: 3;
+
+    &:focus {
+        transform: translateY(0);
+    }
+}
 
 body {
     background-color: $background_color;
@@ -10,6 +27,16 @@ body {
     color: $white;
     font-size: 1.2rem;
     line-height: 1.8rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
 }
 
 h1 {
@@ -129,7 +156,7 @@ a {
     text-decoration: none;
 
     &:hover {
-        color: lighten($theme_color, 50%);
+        color: color.adjust($theme_color, $lightness: 50%);
         cursor: pointer;
         text-decoration: underline;
     }
@@ -198,7 +225,7 @@ button[type="submit"] {
     width: 150px;
 
     &:hover {
-        background: lighten($theme_color, 5%);
+        background: color.adjust($theme_color, $lightness: 5%);
         box-shadow: 0 2px 0 $white;
         transform: translateY(-2px);
     }
@@ -393,13 +420,14 @@ footer h2 {
     width: 50px;
     z-index: 2;
 
-    &:focus-within {
-        outline: none;
+    &:focus-visible {
+        outline: 3px solid $theme_color;
+        outline-offset: 3px;
     }
 }
 
 .switch span {
-    background-color: lighten($background_color, 60%);
+    background-color: color.adjust($background_color, $lightness: 60%);
     display: block;
     height: 3px;
     left: 5px;
@@ -411,7 +439,7 @@ footer h2 {
 
 .switch span::before,
 .switch span::after {
-    background: lighten($background_color, 60%);
+    background: color.adjust($background_color, $lightness: 60%);
     content: "";
     display: block;
     height: 3px;
@@ -551,7 +579,7 @@ dd.list-inline-item {
 
 nav ul li button,
 nav ul li a {
-    background-color: none;
+    background-color: transparent;
     color: #ccc;
     display: block;
     font-size: 90%;

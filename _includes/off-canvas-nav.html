@@ -1,11 +1,10 @@
-<button id="switch" type="button" class="switch">
+<button id="switch" type="button" class="switch" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
   <span>toggle menu</span>
 </button>
-<nav class="off_canvas_navigation">
+<nav id="primary-navigation" class="off_canvas_navigation" aria-label="Primary" aria-hidden="true" inert>
   <ul>
     <li>
       <button
-        tabindex="-1"
         type="button"
         class="scroll text-left"
         data-hook="portfolio"
@@ -15,7 +14,6 @@
     </li>
     <li>
       <button
-        tabindex="-1"
         type="button"
         class="scroll text-left"
         data-hook="about"
@@ -25,7 +23,6 @@
     </li>
     <li>
       <button
-        tabindex="-1"
         type="button"
         class="scroll text-left"
         data-hook="cv"
@@ -35,7 +32,6 @@
     </li>
     <li>
       <button
-        tabindex="-1"
         type="button"
         class="scroll text-left"
         data-hook="contact"
@@ -45,10 +41,9 @@
     </li>
     <li>
       <a
-        tabindex="-1"
-        rel="me"
+        rel="me noopener noreferrer"
         itemprop="url"
-        href="http://www.linkedin.com/pub/kelly-marshall/35/2a6/876"
+        href="https://www.linkedin.com/in/kelly-ann-marshall/"
         target="_blank"
         class="text-decoration-none text-left"
         >LinkedIn</a
@@ -56,10 +51,9 @@
     </li>
     <li>
       <a
-        tabindex="-1"
-        rel="me"
+        rel="me noopener noreferrer"
         itemprop="url"
-        href="http://github.com/KellyAnnMarshall"
+        href="https://github.com/KellyAnnMarshall"
         target="_blank"
         class="text-decoration-none text-left"
         >GitHub</a
