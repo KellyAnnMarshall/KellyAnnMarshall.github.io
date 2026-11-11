@@ -12,48 +12,36 @@
     {% include header.html %}
     <main id="main-content">
       <div class="container">
-        {% include portfolio.html %}
-        <section class="about">
-        <h2 id="about_target">About</h2>
-        <ul class="row column_container clearfix list-unstyled">
-          <li class="col-12 col-md-6 mb-3">
-            <h3 id="web_dev_target">Web Development</h3>
-            <p>I have an MSc in Information Technology from the University of Glasgow and extensive experience in web development. My technical skills include HTML5, CSS3, LESS, SASS, JavaScript, Angular, Vue, React, WordPress, Joomla, Jekyll, Tailwind, Bootstrap, PHP/MySQL, Python/Django and Node.js.</p>
-          </li>
-          <li class="col-12 col-md-6 mb-3">
-            <h3 id="web_des_target">Web Design</h3>
-            <p>My UX/UI design experience includes creating responsive websites, email campaigns, interactive maps, photo and video galleries, and other digital experiences. I work comfortably with HTML5, CSS3, LESS and SASS, and have experience with wireframing and prototyping using Balsamiq, Adobe XD and Figma.</p>
-          </li>
-          <li class="col-12 col-md-6 mb-3">
-            <h3 id="print_target">Print Design</h3>
-            <p>My print design experience covers the full process from design through prepress, including advertising, packaging, catalogues, brochures, annual reports, business proposals, logos and branding, and other promotional materials.</p>
-          </li>
-          <li class="col-12 col-md-6">
-            <h3 id="photo_target">Photography</h3>
-            <p>I have a BFA in Photography from the Maryland Institute College of Art. My photography background includes black-and-white and colour photography, photochemistry, studio lighting, portraiture, and high-end digital image editing.</p>
-          </li>
-        </ul>
-        </section>
-        <section class="details">
+      <section class="details">
           <h2 id="cv_target">CV<a href="{{'/assets/images/KellyAnnMarshallCV.pdf' | relative_url }}" target="_blank" class="icon-link cv">Download
               CV</a></h2>
           <h3>Profile</h3>
-          <p>Front-end developer and UI specialist with a strong background in both software development and visual design. Experienced in building complex web applications and interfaces using Angular, TypeScript, Vue and JavaScript, with particular strengths in UI development, data visualisation, mapping and creating intuitive user experiences.</p>
-          <p>My background in graphic and web design gives me a strong visual and user-centred perspective alongside my technical skills. I enjoy working collaboratively with UX, design and engineering teams to turn complex requirements into clear, usable interfaces, and have experience working across the full process from wireframes and prototypes through to implementation.</p>
+          <p>Front-end developer and UI specialist with extensive experience building complex web applications and interfaces using Angular, Vue, TypeScript and JavaScript. Combines strong technical development skills with a professional background in graphic and web design, bringing a distinctive blend of engineering capability, visual design expertise and user-centred thinking.</p>
+          <p>Experienced in developing interactive data visualisations, mapping applications and responsive user interfaces, working collaboratively with UX, design and engineering teams to turn complex requirements into intuitive digital experiences.</p>
+          <p>Enthusiastic adopter of emerging AI-assisted development technologies, with professional experience evaluating Anthropic Claude within an established software development workflow and independent experience using generative AI tools to accelerate application development, modernise codebases, improve testing and strengthen accessibility.</p>
           <div itemscope itemtype="http://schema.org/ItemList">
             <h3 itemprop="name">Core Skills</h3>
             <h4>Front-End Development</h4>
             <ul class="row styled-list">
-              <li class="col-12 col-md-6" itemprop="itemListElement">Angular</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Angular / RxJS / NgRx</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">TypeScript</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">JavaScript / ES6</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Vue.js</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">HTML5</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">CSS3</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">SASS / LESS</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">RxJS</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">NgRx</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Responsive Web Development</li>
+            </ul>
+            <h4>AI-Assisted Development</h4>
+            <ul class="row styled-list">
+              <li class="col-12 col-md-6" itemprop="itemListElement">Anthropic Claude</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">GitHub Copilot</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">ChatGPT</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Google Gemini</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">AI-assisted application<br /> development and prototyping</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Code generation, refactoring and modernisation</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Automated test generation</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Code quality and accessibility improvements</li>
             </ul>
             <h4>UI / UX Design</h4>
             <ul class="row styled-list">
@@ -88,29 +76,15 @@
               <li class="col-12 col-md-6" itemprop="itemListElement">Cypress</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Playwright</li>
             </ul>
-            <h4>Cloud &amp; Tools</h4>
+            <h4>Infrastructure &amp; Development Tools</h4>
             <ul class="row styled-list">
               <li class="col-12 col-md-6" itemprop="itemListElement">AWS</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Docker</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Terraform</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Jira</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Bitbucket</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Storybook</li>
               <li class="col-12 col-md-6" itemprop="itemListElement">Keycloak</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">IIS</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">pgAdmin</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Microsoft Copilot</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Anthropic Claude</li>
-            </ul>
-            <h4>Creative</h4>
-            <ul class="row styled-list">
-              <li class="col-12 col-md-6" itemprop="itemListElement">Photoshop</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Illustrator</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">InDesign</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Photography</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Illustration</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Retouching</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Prepress</li>
-              <li class="col-12 col-md-6" itemprop="itemListElement">Sound & video production</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Storybook</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Bitbucket</li>
+              <li class="col-12 col-md-6" itemprop="itemListElement">Jira</li>
             </ul>
           </div>
           <div itemscope itemtype="http://schema.org/ItemList">
@@ -119,8 +93,23 @@
               <li class="organization" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
                 <h4 class="job_title" itemprop="jobTitle">Front-End Developer <span class="location_duration">(Nov 2022 - Oct 2025)</span></h4>
                 <p itemprop="name">Beeks Financial Cloud Group Plc, Renfrew, Scotland</p>
-                <p itemprop="description">Worked as part of an internal development team building a self-service portal for network and server infrastructure.</p>
-             
+                <p itemprop="description">Worked as part of an internal development team building a network and server infrastructure self-service portal using Angular and Python/Django.</p>
+                <h5 class="technologies-header">AI-Assisted Development Evaluation</h5>
+                <p>Selected as one of a small group of employees to volunteer for a company trial of Anthropic&apos;s AI assisted development technology.</p>
+                <ul>
+                  <li>Configured Visual Studio Code to integrate with the Anthropic Claude API and evaluated its practical application within an existing software development workflow.</li>
+                  <li>Experimented with AI-assisted dependency upgrades and modernisation of legacy front-end code.</li>
+                  <li>Used Claude to rapidly develop and expand automated testing specifications and explore accessibility improvements for important UI components, including the application's main site navigation.</li>
+                  <li>Evaluated the quality, usefulness and potential productivity benefits of AI-assisted coding, providing feedback to the company to inform its decision on adopting a company-wide subscription.</li>
+                  <li>Actively advocated the potential value of the technology as a development productivity tool.</li>
+                </ul>
+                 <h5 class="technologies-header">Front End Development</h5>
+                 <ul>
+                  <li>Developed front-end features for a network and server infrastructure self-service portal using Angular and Python/Django.</li>
+                  <li>Designed and developed chart components using D3.js to display server usage analytics and make infrastructure data easier to interpret.</li>
+                  <li>Maintained and modernised legacy front-end code, including upgrading dependencies and keeping the application current.</li>
+                  <li>Worked within an internal development team to deliver and maintain a complex business application.</li>
+                 </ul>
                 <h5 class="technologies-header">Technologies:</h5>
                 <ul itemprop="technologies" class="technologies-list">
                   <li>Angular</li>
@@ -141,19 +130,21 @@
                   <li>Microsoft Copilot</li>
                   <li>Anthropic Claude</li>
                 </ul>
-            
-                <ul itemprop="description">
-                  <li>Developed front-end features for a network and server infrastructure self-service portal using Angular and Python/Django.</li>
-                  <li>Designed and developed chart components using D3.js to display server usage analytics and make infrastructure data easier to interpret.</li>
-                  <li>Maintained and modernised legacy front-end code, including upgrading dependencies and keeping the application current.</li>
-                  <li>Worked within an internal development team to deliver and maintain a complex business application.</li>
-                </ul>
               </li>
 
               <li class="organization" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
                 <h4 class="job_title" itemprop="jobTitle">Senior Developer <span class="location_duration">(Aug 2020 - Jun 2022)</span></h4> 
                 <p itemprop="name">Idox Group (acquired thinkWhere in Oct 2021), Glasgow, Scotland</p>
                 <p itemprop="description">Worked as part of an agile development team with a strong focus on UI design and front-end development for groundMapper, a fully featured cloud GIS data application.</p>
+
+                <ul itemprop="description">
+                  <li>Designed and developed user interfaces for a complex GIS application combining mapping, data management and search functionality.</li>
+                  <li>Created wireframes and UI designs for advanced search, split-screen map/data views and bespoke forestry data management features.</li>
+                  <li>Developed and delivered administration features covering permissions, accounts, projects and user management.</li>
+                  <li>Designed and developed the front end for EuroGeographics Open Maps for Europe, a website providing access to official European map, geospatial and land information.</li>
+                  <li>Worked collaboratively within an agile team across design, development and product requirements.</li>
+                </ul>
+
                 <h5 class="technologies-header">Technologies:</h5>
                 <ul class="technologies-list">
                   <li>Angular</li>
@@ -171,14 +162,6 @@
                   <li>Balsamiq</li>
                   <li>Git</li>
                   <li>Jira</li>
-                </ul>
-
-                <ul itemprop="description">
-                  <li>Designed and developed user interfaces for a complex GIS application combining mapping, data management and search functionality.</li>
-                  <li>Created wireframes and UI designs for advanced search, split-screen map/data views and bespoke forestry data management features.</li>
-                  <li>Developed and delivered administration features covering permissions, accounts, projects and user management.</li>
-                  <li>Designed and developed the front end for EuroGeographics Open Maps for Europe, a website providing access to official European map, geospatial and land information.</li>
-                  <li>Worked collaboratively within an agile team across design, development and product requirements.</li>
                 </ul>
           
               </li>
@@ -211,135 +194,8 @@
                   <li>Worked with UX, design and software engineering teams to create complex itinerary CMS templates integrating destination data with interactive maps.</li>
                 </ul>
               </li>
-
-              <li class="organization" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Front-End Developer <span class="location_duration">(Aug 2017 - May 2018)</span></h4>
-                <p itemprop="name">Peninsula Business Services, Glasgow, Scotland</p>
-                <h5 class="technologies-header">Technologies:</h5>
-                <ul class="technologies-list">
-                  <li>HTML5</li>
-                  <li>CSS3</li>
-                  <li>LESS</li>
-                  <li>AngularJS</li>
-                  <li>JavaScript / ES6</li>
-                  <li>Node.js</li>
-                  <li>Gulp</li>
-                  <li>Git</li>
-                  <li>Karma</li>
-                  <li>Jasmine</li>
-                  <li>VS Code</li>
-                  <li>Jenkins</li>
-                  <li>Web APIs</li>
-                  <li>Microsoft Team Foundation Server</li>
-                </ul>
-                
-                <ul itemprop="description">
-                  <li>Developed HTML, CSS/LESS and JavaScript features for an internal task-management single-page application built with AngularJS.</li>
-                  <li>Researched and implemented the Postcode Anywhere API for client address search and data entry.</li>
-                  <li>Refactored the project's CSS/LESS structure to improve maintainability.</li>
-                  <li>Introduced automated CSS code linting to improve consistency and code quality.</li>
-                </ul>
-              </li>
-
-              <li class="organization" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Front-End Developer <span class="location_duration">(Feb 2014 - May 2017)</span></h4>
-                <p itemprop="name">Arnold Clark, Glasgow, Scotland</p>
-                <h5 class="technologies-header">Technologies:</h5>
-                <ul class="technologies-list">
-                  <li>HTML5</li>
-                  <li>CSS3</li>
-                  <li>SASS</li>
-                  <li>JavaScript / ES6</li>
-                  <li>jQuery</li>
-                  <li>Node.js</li>
-                  <li>Git</li>
-                  <li>Backbone</li>
-                  <li>Jekyll</li>
-                  <li>Joomla</li>
-                  <li>Jasmine</li>
-                  </ul> 
-                
-                <ul itemprop="description">
-                  <li>Worked as part of an agile web development team on the client-side development of Arnold Clark's rental and leasing websites.</li>
-                  <li>Developed responsive HTML, CSS/SASS and JavaScript features across multiple customer-facing websites.</li>
-                  <li>Worked with Worldpay technical support and the back-end developer to upgrade a legacy online payment system to Worldpay Hosted Payment Pages.</li>
-                  <li>The new payment implementation was responsive across tablet and mobile devices and contributed to a 21% increase in mobile revenue.</li>
-                </ul>
-              </li>
-            <li class="organization organization--last" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Web Content Officer <span class="location_duration">(Oct 2012 - Nov 2013)</span></h4>
-                <p itemprop="name">The University of Glasgow, Glasgow, Scotland</p>
-               <ul itemprop="description">
-                  <li>Provided web design, development and support to academic and professional services staff using the T4 CMS.</li>
-                  <li>Developed a searchable pop-up video gallery using CSS and jQuery.</li>
-                  <li>Developed reusable magazine and responsive email content templates.</li>
-                  <li>Developed a customised PHP/MySQL database and web-based editor for managing research and academic URLs, cross-references and associations.</li>
-                  <li>Created training and support resources for the T4 content management system.</li>
-                </ul>
-              </li>
-              <li class="organization organization--last" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Web Developer / Research Assistant <span class="location_duration">(Oct 2011 - Nov 2012)</span></h4>
-                <p itemprop="name">The University of Glasgow, Glasgow, Scotland</p>
-               <ul itemprop="description">
-                  <li>Designed and developed websites and web applications while contributing to project coordination, user evaluation studies, presentations and technical writing.</li>
-                  <li>Developed a customised PHP/MySQL web content editor for the School of Mathematics & Statistics and School of Computing Science.</li>
-                  <li>Designed a child-friendly search interface for patients at Emma Children's Hospital in Amsterdam.</li>
-                  <li>Designed and evaluated alternative search interfaces as part of an information-retrieval user study.</li>
-                </ul>
-              </li>
             </ul>
           </div>
-          <div itemscope itemtype="http://schema.org/ItemList">
-            <h3 itemprop="name">Earlier Design Experience</h3>
-
-            <ul class="list-unstyled p-0 m-0">
-              <li class="organization" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Graphic Designer <span class="location_duration">(Feb 2008 - Sep 2010)</span></h4>
-                <p itemprop="name">Admit One, New York, NY</p>
-                <p itemprop="description">Print and web design, email campaigns, illustration, prepress, large-format displays, trade-show booths, corporate identity, signage and project management. Managed relationships with outside vendors and contributed to the production of weekly email campaigns reaching more than 20,000 recipients.</p>
-              </li>
-              <li class="organization" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Graphic Designer <span class="location_duration">(Nov 2002 - Nov 2007)</span></h4>
-                <p itemprop="name">Henry M. Jackson Foundation for the Advancement of Military Medicine, Bethesda, MD</p>
-                <p itemprop="description">Print and web design, annual reports, business proposals, brochures, scientific posters, trade-show displays, corporate identity, websites and promotional materials. Managed projects, worked directly with clients and vendors, and supervised summer design interns.</p>
-                <h5 class="technologies-header">Selected work included:</h5>
-                <ul itemprop="description">
-                  <li>Corporate annual reports</li>
-                  <li>Naval Medical Research Center capabilities brochure</li>
-                  <li>Recruitment advertising featured in <em>Nature</em> magazine</li>
-                  <li>Large-format exhibition and trade-show displays, including a 10-metre multi-panel display</li>
-                  <li>Company and client websites</li>
-                </ul>
-              </li>
-            </ul>
-
-          </div>
-            <div itemscope itemtype="http://schema.org/ItemList">
-          <h3 itemprop="name">Earlier Career</h3>
-
-               <ul class="list-unstyled p-0 m-0">
-                <li class="organization m-0" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                    <h4 class="job_title" itemprop="jobTitle">Graphic Designer <span class="location_duration">(Feb 1999 - Dec 2000)</span></h4>
-                <p itemprop="name">Lado International College, Washington, DC</p>
-              </li>
-                 <li class="organization m-0" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Advertising Designer <span class="location_duration">(Jun 1996, Jan 1999)</span></h4>
-                <p itemprop="name">Channing L. Bete Company, South Deerfield, MA</p>
-              </li>
-              <li class="organization m-0" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Freelance Designer <span class="location_duration">(May 1994 - May 1996)</span></h4>
-                <p itemprop="name">Freelance Designer, New York, NY</p>
-              </li>
-              <li class="organization m-0" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Digital Retoucher <span class="location_duration">(Jun 1993 - May 1994)</span></h4>
-                <p itemprop="name">Digital Stock Connection, Rockville, MD</p>
-              </li>
-              <li class="organization organization--last" itemprop="itemListElement" itemscope itemtype="http://schema.org/Organization">
-                <h4 class="job_title" itemprop="jobTitle">Studio Portrait Photographer <span class="location_duration">(Jun 1992 - Mar 1993)</span></h4>
-                <p itemprop="name">Elegant Images, Towson, MD</p>
-              </li>
-               </ul>
-               </div>
   <div itemscope itemtype="http://schema.org/ItemList">
           <h3 itemprop="name">Education</h3>
           <ul class="list-unstyled p-0 m-0">
@@ -385,62 +241,9 @@
           </div>
           </ul>
           </div>
-     
-        <div itemscope itemtype="http://schema.org/ItemList">
-          <h3 itemprop="name">Additional Skills</h3>
-          <ul class="list-unstyled p-0 m-0">
-            <li>
-              <h4>Languages:</h4>
-              <ul itemprop="description" class="row styled-list">
-                <li class="col-12 col-md-6" itemprop="itemListElement">
-                  Native English
-                </li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">
-                    Basic written and conversational Croatian / Serbian / Bosnian
-                  </li>
-              </ul>
-            </li>
-            <li>
-              <h4>Microsoft:</h4>
-                <ul itemprop="description"  class="row styled-list">
-                  <li class="col-12 col-md-6" itemprop="itemListElement">PowerPoint</li>
-                    <li class="col-12 col-md-6" itemprop="itemListElement">Word</li>
-                    <li class="col-12 col-md-6" itemprop="itemListElement">Excel</li>
-                    <li class="col-12 col-md-6" itemprop="itemListElement">Power BI</li>
-                </ul>
-            </li>
-            <li itemprop="itemListElement">
-              <h4>Creative Software:</h4>
-                <ul itemprop="description"  class="row styled-list">
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Photoshop</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">InDesign</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Illustrator</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Figma</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Adobe XD</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Balsamiq</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Final Cut Pro</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Logic Pro</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Keynote</li>
-                </ul>
-            </li>
-            <li itemprop="itemListElement">
-              <h4>CMS / Web:</h4>
-                <ul itemprop="description"  class="row styled-list">
-                  <li class="col-12 col-md-6" itemprop="itemListElement">WordPress</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Joomla</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">MAMP</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">WAMP</li>
-                  <li class="col-12 col-md-6" itemprop="itemListElement">Google Analytics</li>
-                </ul>
-            </li>
-            <li itemprop="itemListElement">
-              <h4>Typing:</h4>
-                <ul itemprop="description"  class="row styled-list">
-                  <li class="col-12 col-md-6" itemprop="itemListElement">70 wpm</li>
-                </ul>
-            </li>
-          </ul>
       </section>
+
+         {% include projects.html %}
     </main>
 
     {% include footer.html %}

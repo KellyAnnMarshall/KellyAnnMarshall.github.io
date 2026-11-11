@@ -1,6 +1,6 @@
-# Kelly Ann Marshall — portfolio site
+# Kelly Ann Marshall — CV site
 
-This repository contains a Jekyll portfolio and several separately built static
+This repository contains a Jekyll CV and several separately built static
 project demos. The main site is built with the Ruby/Jekyll toolchain; the demo
 directories are published as existing static files.
 
